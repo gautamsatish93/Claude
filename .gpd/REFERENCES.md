@@ -1,33 +1,39 @@
 # References: Causal Horizons Decohere Quantum Superpositions
 
 **Created:** 2026-03-27
-**Status:** Partial — scouts 2/4 complete (DSW + FLRW scouts still running)
+**Status:** Partial — scouts 3/4 complete (FLRW decoherence scout still running)
 
 ---
 
 ## DSW Decoherence Framework Papers
 
-### DSW (2022) — Black Holes Decohere Quantum Superpositions
-D. L. Danielson, G. Satishchandran, and R. M. Wald, "Black Holes Decohere Quantum Superpositions," *Int. J. Mod. Phys. D* **31**, 2241003 (2022).
-arXiv: 2205.06279 [hep-th]
-*Founding paper. Third prize, 2022 Gravity Research Foundation Essay Competition.*
+### DSW (2022a) — Gravitationally Mediated Entanglement
+D. L. Danielson, G. Satishchandran, and R. M. Wald, "Gravitationally mediated entanglement: Newtonian field versus gravitons," *Phys. Rev. D* **105**, 086001 (2022).
+arXiv: 2112.10798 [quant-ph]. Submitted December 2021; published April 2022.
+*Earliest DSW paper. Theoretical foundation: entanglement by Newtonian gravity implies quantized gravitational radiation and decoherence from graviton emission.*
 
-### DSW (2023) — Killing Horizons Decohere Quantum Superpositions  ⚠️ NOTE BELOW
-D. L. Danielson, G. Satishchandran, and R. M. Wald, "Killing Horizons Decohere Quantum Superpositions," *Phys. Rev. D* **108**, 025007 (2023).
-arXiv: 2301.00026 [hep-th]. DOI: 10.1103/PhysRevD.108.025007
-*Extends to all Killing horizons including de Sitter; gives decoherence rate Γ ~ H³q²d²T for de Sitter.*
-⚠️ **Citation label discrepancy:** The NR draft cites this as "Danielson et al. (2022b)" but arXiv submission is January 2023 and PRD publication is 2023. Likely cited by draft date of submission or a preprint circulated in 2022. Use (2023) in the final paper.
+### DSW (2022b) — Black Holes Decohere Quantum Superpositions
+D. L. Danielson, G. Satishchandran, and R. M. Wald, "Black holes decohere quantum superpositions," *Int. J. Mod. Phys. D* **31**, 2241003 (2022).
+arXiv: 2205.06279 [hep-th]. Third prize, 2022 Gravity Research Foundation Essay Competition.
+*Core result: black hole absorbs soft radiation carrying which-path info → decoherence. Cited as "DSW 2022b" in NR draft.*
+⚠️ **Important:** This paper covers BLACK HOLES only, not de Sitter. The NR draft cites "Danielson et al. (2022b)" for the de Sitter result Γ ~ H³q²d²T — but that result is in DSW (2023) below. The "2022b" label in the NR draft likely refers to the arXiv submission date (Dec 30, 2022). Use DSW (2023) citation for the de Sitter result in the final paper.
+
+### DSW (2023) — Killing Horizons Decohere Quantum Superpositions  ← CONTAINS de Sitter result
+D. L. Danielson, G. Satishchandran, and R. M. Wald, "Killing horizons decohere quantum superpositions," *Phys. Rev. D* **108**, 025007 (2023).
+arXiv: 2301.00026 [hep-th]. DOI: 10.1103/PhysRevD.108.025007. Submitted Dec 30, 2022; published July 12, 2023.
+*Generalizes to all Killing horizons. Sec. IV: de Sitter cosmological horizon → Γ ~ H³q²d²T. This is what the NR draft calls "2022b."*
 
 ### DSW (2025a) — Local Description of Decoherence
-D. L. Danielson, G. Satishchandran, and R. M. Wald, "Local Description of Decoherence of Quantum Superpositions by Black Holes and Other Bodies," *Phys. Rev. D* **111**, 025014 (2025).
-arXiv: 2407.02567 [hep-th]. DOI: 10.1103/PhysRevD.111.025014
+D. L. Danielson, G. Satishchandran, and R. M. Wald, "Local description of decoherence of quantum superpositions by black holes and other bodies," *Phys. Rev. D* **111**, 025014 (2025).
+arXiv: 2407.02567 [hep-th]. DOI: 10.1103/PhysRevD.111.025014. Submitted July 2024; published January 2025.
+*Shows horizon decoherence = local low-frequency Hawking quanta at Alice's lab. Directly relevant to the local formulation used in this paper.*
 
-### DSW (2025b) — How to Minimize the Decoherence
-D. L. Danielson, J. Kudler-Flam, G. Satishchandran, and R. M. Wald, "How to Minimize the Decoherence Caused by Black Holes," *Phys. Rev. D* **112**, 025012 (2025).
-arXiv: 2501.04773. DOI: 10.1103/67vv-km43
+### DKSW (2025b) — How to Minimize the Decoherence
+D. L. Danielson, J. Kudler-Flam, G. Satishchandran, and R. M. Wald, "How to minimize the decoherence caused by black holes," *Phys. Rev. D* **112**, 025012 (2025).
+arXiv: 2501.04773 [hep-th]. DOI: 10.1103/67vv-km43
 
 ### DS (2025c) — Horizons and Soft Quantum Information
-D. L. Danielson and G. Satishchandran, "Horizons and Soft Quantum Information," arXiv: 2512.20754 [hep-th] (submitted December 2025).
+D. L. Danielson and G. Satishchandran, "Horizons and soft quantum information," arXiv: 2512.20754 [hep-th] (submitted December 2025).
 *Preprint only as of March 2026.*
 
 ---
