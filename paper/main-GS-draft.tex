@@ -1,0 +1,168 @@
+\documentclass[amsmath,amssymb,nofootinbib,notitlepage,superscriptaddress,twocolumn]{revtex4-2}
+
+% --- Fonts / encoding (keep if you need T1 + UTF8 explicitly)
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% --- Core math + symbols
+\usepackage{mathtools} % loads amsmath; provides \newtagform
+\usepackage{amssymb,amsfonts,amsthm}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{slashed}
+\usepackage[bb=dsserif]{mathalpha}
+\usepackage{bm}
+
+% --- Graphics / floats
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+% revtex: avoid subfigure (obsolete). Use subcaption if needed.
+\usepackage{subcaption}
+
+% --- Lists, spacing, comments
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+\usepackage{comment}
+
+% --- Footnotes
+\usepackage[marginal,multiple]{footmisc}
+
+% --- Colors / underline
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+% --- Tags / references (hyperref before cleveref)
+\newtagform{brackets}{[}{]}
+\usepackage[unicode,colorlinks,allcolors=blue!70!black,linktocpage,pdfusetitle]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{cleveref}
+
+% --- ORCID (you use \orcidlink in \author)
+\usepackage{orcidlink}
+
+% --- Paragraph spacing (THIS was an error in your file)
+\setlength{\parskip}{2mm}
+
+% --- Operators
+\DeclareMathOperator{\tr}{tr}
+
+% --- Notes
+\newcommand{\SG}[1]{\textcolor{blue}{\textsf{[SG: #1]}}}
+\newcommand{\HW}[1]{\textcolor{red}{\textsf{[HW: #1]}}}
+
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\newcommand{\Nnote}[1]{{\textcolor{magenta}{#1}}}
+\newcommand{\GSnote}[1]{{\it \textcolor{indigo(dye)}{#1}}}
+
+% --- Convenience macros (define once)
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+% remove spaces from bra/ket (keep braket package? mathtools doesn't supply it)
+\usepackage{braket}
+\newcommand{\kt}[1]{\!\ket{#1}\!}
+\newcommand{\br}[1]{\!\bra{#1}\!}
+\newcommand{\brkt}[1]{\!\braket{#1}\!}
+\newcommand{\I}{^{(I)}}
+\newcommand{\heis}{^{(H)}}
+\newcommand{\pd}{\partial}
+\newcommand{\vecb}[1]{\boldsymbol{#1}}
+\newcommand{\mc}{\mathcal}
+\newcommand{\mt}{\mathtt}
+\newcommand{\mb}{\mathbf}
+\newcommand{\ms}{\mathscr}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\bb}{\mathbb}
+\newcommand{\msf}{\mathsf}
+\newcommand{\op}[1]{\boldsymbol{#1}}
+% --- cleveref names
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+\crefname{section}{Sec.}{Secs.}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tabs.}
+
+\crefname{definition}{Def.}{Defs.}
+\crefname{prop}{Prop.}{Props.}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Cor.}{Cors.}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{remark}{Remark}{Remarks}
+
+\crefname{ass}{Assumptions}{Assumptions}
+\crefname{property}{Properties}{Properties}
+
+% --- Section numbering + refs (THIS was an error in your file: missing \ after \def)
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+
+\makeatletter
+\def\p@subsection{\thesection.}
+\def\p@subsubsection{\thesection.\thesubsection.}
+\makeatother
+
+% --- Theorems
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{ass}{Assumptions}[section]
+\newtheorem{property}{Properties}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+
+\crefname{section}{Sec.}{Secs.}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tabs.}
+
+\crefname{definition}{Def.}{Defs.}
+\crefname{prop}{Prop.}{Props.}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Cor.}{Cors.}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{remark}{Remark}{Remarks}
+
+\crefname{ass}{Assumptions}{Assumptions}
+\crefname{property}{Properties}{Properties}
+
+\begin{document}
+
+\title{Causal Horizons Decohere Quantum Superpositions}
+
+\author{Gautam Satishchandran \orcidlink{0000-0001-8929-0814}}\email{gautam.satish@princeton.edu}
+\affiliation{Physics Department, Princeton Gravity Initiative, Princeton, NJ, USA}
+\author{Nishkal Rao \orcidlink{0009-0006-4551-7312}}\email{nishkal.rao@students.iiserpune.ac.in}
+\affiliation{Department of Physics, Indian Institute of Science Education and Research, Pashan, Pune - 411 008, India}
+
+\date{\today}
+
+\begin{abstract}
+\noindent We show that cosmological horizons induce decoherence of spatial quantum superpositions. Using a local, conformal-field approach, we compute the decoherence functional for massless conformally coupled fields in cosmological spacetimes and obtain scaling laws for the decoherence with the superposition time scale. With the advent of theoretical evidence regarding decoherence caused by horizons, we focus on the argument regarding the degrees of freedom located behind the horizon that lead to this decoherence. While it can also be interpreted as the radiation of soft modes, we disentangle the thermal effects by examining a causal horizon that lacks a global Killing vector field. Despite this, we still observe that decoherence scales logarithmically with the timescale of the experiment.
+\end{abstract}
+\maketitle
+
+% NOTE: This is the GS (Gautam Satishchandran) draft.
+% The framework sections (Secs 2-3) are the more polished version.
+% For the calculation, see main-NR-draft.tex (Nishkal Rao's draft).
+
+% [Content as provided by GS -- full draft pasted here]
+
+\end{document}

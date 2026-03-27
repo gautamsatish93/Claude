@@ -1,0 +1,18 @@
+{
+  "autonomy": "supervised",
+  "research_mode": "balanced",
+  "commit_docs": true,
+  "planning": {
+    "commit_docs": true
+  },
+  "agents": {
+    "plan_researcher": true,
+    "plan_checker": true,
+    "execution_verifier": true
+  },
+  "gates": {
+    "inter_wave_verification": "always"
+  },
+  "parallel_execution": true,
+  "model_profile": "deep-theory"
+}

@@ -1,0 +1,390 @@
+{
+  "project_reference": {
+    "project_md_updated": null,
+    "core_research_question": "Does the presence of a future causal horizon in a general FLRW spacetime produce a well-defined decoherence rate, and does it scale logarithmically with T for power-law cosmologies?",
+    "current_focus": "Phase 3: Decoherence Integral \u2014 Power-Law FLRW"
+  },
+  "project_contract": {
+    "schema_version": 1,
+    "scope": {
+      "question": "What is the decoherence rate for a superposed charged body in a general FLRW spacetime with a causal horizon, arising from soft radiation that escapes beyond the horizon?",
+      "in_scope": [
+        "Conformally invariant fields (electromagnetic and scalar) coupled to a superposed charged body",
+        "General FLRW spacetime with a future event horizon",
+        "Closed-form decoherence rate expressed in terms of scale factor a(t), Hubble parameter H, and source worldline parameters",
+        "Explicit evaluation in pure de Sitter (H = const) as the primary worked example",
+        "Connection of the de Sitter result to the Gibbons-Hawking thermal rate T = H/(2pi)"
+      ],
+      "out_of_scope": [
+        "Non-conformally invariant fields (gravity / soft gravitons) \u2014 interesting but much harder",
+        "Flat-space DSW formula as a primary anchor (H to 0 limit is IR-divergent and connection is subtle)",
+        "Numerical simulations or lattice methods"
+      ],
+      "unresolved_questions": [
+        "Precise definition of which radiation crossed the horizon must be made gauge-invariant and operationally clear",
+        "Whether the decoherence exponent admits a fully closed-form expression for general a(t) or only for specific scale factors",
+        "How the observer worldline choice (comoving vs static) affects the result"
+      ]
+    },
+    "context_intake": {
+      "must_read_refs": [
+        "Ref-DSW",
+        "Ref-dS-Wightman",
+        "Ref-GH-thermal"
+      ],
+      "must_include_prior_outputs": [],
+      "user_asserted_anchors": [
+        "Decoherence rate in pure de Sitter must connect to Gibbons-Hawking temperature T = H/(2pi)",
+        "Two-point function for conformally invariant field in de Sitter must match known expressions"
+      ],
+      "known_good_baselines": [],
+      "context_gaps": [
+        "Precise IR regulator replacement by horizon scale needs careful justification",
+        "Worldline prescription in FLRW (proper time vs conformal time) not yet fixed"
+      ],
+      "crucial_inputs": []
+    },
+    "approach_policy": {
+      "formulations": [
+        "DSW framework: decoherence exponent built from classical radiation field sourced by the worldline in each branch of the superposition",
+        "Retarded Green function for conformally invariant field in FLRW, leveraging conformal flatness to relate to Minkowski Green function",
+        "Trace over radiation modes that have escaped beyond the future event horizon"
+      ],
+      "allowed_estimator_families": [
+        "Analytic derivation using conformal mapping and known FLRW Green functions",
+        "Explicit mode-sum or Wightman-function integral restricted to the accessible causal region"
+      ],
+      "forbidden_estimator_families": [
+        "Pure numerical methods without analytic cross-check",
+        "Proxy sanity checks accepted as final validation without the de Sitter Gibbons-Hawking anchor check"
+      ],
+      "allowed_fit_families": [],
+      "forbidden_fit_families": [],
+      "stop_and_rethink_conditions": [
+        "If conformal invariance argument breaks down at a step, stop and flag before proceeding",
+        "If the de Sitter specialization does not reproduce the expected T = H/(2pi) thermal structure, stop and diagnose before continuing"
+      ]
+    },
+    "observables": [
+      {
+        "id": "obs-deco-rate",
+        "name": "Decoherence exponent Gamma(t)",
+        "kind": "scalar",
+        "definition": "The exponent in the off-diagonal density matrix element rho_12(t) proportional to exp(-Gamma(t)), computed in the DSW framework for a superposed charged body in FLRW, with the trace taken over radiation modes that have crossed the event horizon",
+        "regime": "General FLRW with future event horizon; de Sitter (H=const) as primary special case",
+        "units": null
+      },
+      {
+        "id": "obs-dS-thermal",
+        "name": "de Sitter decoherence rate vs Gibbons-Hawking temperature",
+        "kind": "scalar",
+        "definition": "In pure de Sitter, the decoherence rate should exhibit thermal structure at temperature T = H/(2pi), providing the primary anchor check",
+        "regime": null,
+        "units": null
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-main",
+        "statement": "The presence of a future event horizon in FLRW spacetime produces a well-defined, finite decoherence rate for a superposed charged body coupled to a conformally invariant field, expressible in closed form in terms of a(t), H, and source parameters",
+        "observables": [
+          "obs-deco-rate"
+        ],
+        "deliverables": [
+          "deliv-formula",
+          "deliv-dS-result"
+        ],
+        "acceptance_tests": [
+          "test-dS-Wightman",
+          "test-GH-thermal",
+          "test-dimensional"
+        ],
+        "references": [
+          "Ref-DSW",
+          "Ref-dS-Wightman",
+          "Ref-GH-thermal"
+        ]
+      },
+      {
+        "id": "claim-dS",
+        "statement": "In pure de Sitter, the decoherence formula specializes to a result that encodes the Gibbons-Hawking temperature T = H/(2pi) and agrees with the known de Sitter Wightman function for the conformally invariant field",
+        "observables": [
+          "obs-dS-thermal"
+        ],
+        "deliverables": [
+          "deliv-dS-result"
+        ],
+        "acceptance_tests": [
+          "test-GH-thermal",
+          "test-dS-Wightman"
+        ],
+        "references": [
+          "Ref-dS-Wightman",
+          "Ref-GH-thermal"
+        ]
+      }
+    ],
+    "deliverables": [
+      {
+        "id": "deliv-formula",
+        "kind": "derivation",
+        "path": null,
+        "description": "Closed-form expression for the decoherence exponent Gamma(t) for a superposed charged body coupled to a conformally invariant field in general FLRW with a future event horizon",
+        "must_contain": [
+          "Explicit dependence on scale factor a(t) and Hubble parameter H",
+          "Role of the event horizon as the IR regulator replacing the flat-space regulator",
+          "Clear statement of the conformal invariance argument used"
+        ]
+      },
+      {
+        "id": "deliv-dS-result",
+        "kind": "derivation",
+        "path": null,
+        "description": "Explicit specialization of the general FLRW decoherence formula to pure de Sitter (H = const), with connection to Gibbons-Hawking temperature",
+        "must_contain": [
+          "de Sitter Wightman function evaluated explicitly",
+          "Decoherence rate expressed in terms of H",
+          "Identification of the T = H/(2pi) thermal structure"
+        ]
+      }
+    ],
+    "acceptance_tests": [
+      {
+        "id": "test-dS-Wightman",
+        "subject": "claim-dS",
+        "kind": "benchmark",
+        "procedure": "Verify that the two-point function used in the de Sitter specialization matches the known Wightman function for a conformally invariant scalar or EM field in de Sitter space from the literature",
+        "pass_condition": "Exact agreement with published de Sitter Wightman function expressions",
+        "evidence_required": [
+          "deliv-dS-result",
+          "Ref-dS-Wightman"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-GH-thermal",
+        "subject": "claim-dS",
+        "kind": "consistency",
+        "procedure": "Check that the de Sitter decoherence rate exhibits the thermal structure expected for a Gibbons-Hawking temperature T = H/(2pi)",
+        "pass_condition": "The decoherence rate in de Sitter contains the factor H/(2pi) or the Planck distribution at T = H/(2pi) in the appropriate regime",
+        "evidence_required": [
+          "deliv-dS-result",
+          "Ref-GH-thermal"
+        ],
+        "automation": "human"
+      },
+      {
+        "id": "test-dimensional",
+        "subject": "claim-main",
+        "kind": "dimensional_analysis",
+        "procedure": "Verify that the decoherence exponent Gamma(t) is dimensionless and that each term in the derivation has consistent units in natural units (hbar = c = 1)",
+        "pass_condition": "All intermediate expressions and the final formula are dimensionally consistent",
+        "evidence_required": [
+          "deliv-formula"
+        ],
+        "automation": "human"
+      }
+    ],
+    "references": [
+      {
+        "id": "Ref-DSW",
+        "kind": "paper",
+        "locator": "Danielson, Satishchandran, Wald \u2014 local decoherence from entangling radiation (2022 and follow-ups)",
+        "aliases": [
+          "DSW",
+          "Danielson-Satishchandran-Wald"
+        ],
+        "role": "method",
+        "why_it_matters": "Primary framework being generalized \u2014 defines the decoherence exponent in terms of classical radiation fields, identifies the physical mechanism (unobserved entangling radiation), and provides the flat-space baseline formula",
+        "applies_to": [
+          "claim-main"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "cite"
+        ]
+      },
+      {
+        "id": "Ref-dS-Wightman",
+        "kind": "paper",
+        "locator": "Standard references for Wightman and two-point functions of conformally invariant fields in de Sitter space (Allen, Bunch-Davies, etc.)",
+        "aliases": [
+          "dS-Wightman",
+          "Bunch-Davies"
+        ],
+        "role": "benchmark",
+        "why_it_matters": "The de Sitter Wightman function for conformally invariant fields is the primary anchor for the de Sitter specialization \u2014 the calculation must reproduce these known expressions",
+        "applies_to": [
+          "claim-dS"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "compare",
+          "cite"
+        ]
+      },
+      {
+        "id": "Ref-GH-thermal",
+        "kind": "paper",
+        "locator": "Gibbons and Hawking (1977) \u2014 cosmological event horizons, thermodynamics, and particle creation",
+        "aliases": [
+          "Gibbons-Hawking",
+          "GH-thermal"
+        ],
+        "role": "benchmark",
+        "why_it_matters": "The Gibbons-Hawking temperature T = H/(2pi) is the primary physical anchor for the de Sitter case \u2014 the decoherence rate must encode this thermal scale",
+        "applies_to": [
+          "claim-dS"
+        ],
+        "carry_forward_to": [
+          "planning",
+          "execution",
+          "verification",
+          "writing"
+        ],
+        "must_surface": true,
+        "required_actions": [
+          "read",
+          "compare",
+          "cite"
+        ]
+      }
+    ],
+    "forbidden_proxies": [
+      {
+        "id": "fp-flat-limit",
+        "subject": "claim-main",
+        "proxy": "Agreement with the flat-space DSW formula in the H to 0 limit",
+        "reason": "The flat-space result is IR-divergent; the H to 0 limit of the FLRW formula is subtle and should not be used as the primary validation anchor"
+      },
+      {
+        "id": "fp-qualitative",
+        "subject": "claim-main",
+        "proxy": "Qualitative agreement with thermal expectations without checking the Wightman function or Gibbons-Hawking structure explicitly",
+        "reason": "Qualitative agreement could mask sign errors, factor-of-2pi errors, or incorrect regime assumptions"
+      }
+    ],
+    "links": [
+      {
+        "id": "link-formula-to-dS",
+        "source": "claim-main",
+        "target": "deliv-dS-result",
+        "relation": "supports",
+        "verified_by": [
+          "test-dS-Wightman",
+          "test-GH-thermal"
+        ]
+      },
+      {
+        "id": "link-dS-claim",
+        "source": "claim-dS",
+        "target": "deliv-dS-result",
+        "relation": "supports",
+        "verified_by": [
+          "test-dS-Wightman",
+          "test-GH-thermal"
+        ]
+      }
+    ],
+    "uncertainty_markers": {
+      "weakest_anchors": [
+        "The conformal invariance argument for mapping FLRW Green functions to flat-space ones \u2014 may fail at subleading order or for observer trajectories that do not transform simply under the conformal rescaling"
+      ],
+      "unvalidated_assumptions": [
+        "The event horizon provides a clean split between traced-out and accessible radiation modes",
+        "The DSW decoherence formula generalizes straightforwardly to curved spacetime with a horizon"
+      ],
+      "competing_explanations": [
+        "Alternative: decoherence may also arise from the Gibbons-Hawking radiation bath itself, not only from the escaping radiation \u2014 whether these are the same or distinct effects needs clarification"
+      ],
+      "disconfirming_observations": [
+        "If the conformal mapping introduces anomalous contributions (conformal anomaly) that spoil the argument, the entire approach needs revision",
+        "If the de Sitter specialization does not exhibit T = H/(2pi) thermal structure, the physical picture connecting horizons to decoherence needs fundamental rethinking"
+      ]
+    }
+  },
+  "position": {
+    "current_phase": "03",
+    "current_phase_name": "Decoherence Integral: Power-Law FLRW",
+    "total_phases": 6,
+    "current_plan": null,
+    "total_plans_in_phase": null,
+    "status": "Ready to plan",
+    "last_activity": "2026-03-27",
+    "last_activity_desc": null,
+    "progress_percent": 0,
+    "paused_at": null
+  },
+  "active_calculations": [],
+  "intermediate_results": [],
+  "open_questions": [
+    "Precise definition of which radiation crossed the horizon must be made gauge-invariant and operationally clear",
+    "Whether the decoherence exponent admits a fully closed-form expression for general a(t) or only for specific scale factors",
+    "How the observer worldline choice (comoving vs static) affects the result"
+  ],
+  "performance_metrics": {
+    "rows": []
+  },
+  "decisions": [
+    {
+      "phase": "setup",
+      "summary": "Conformal vacuum as initial state",
+      "rationale": "Natural in FLRW via conformal flatness; Minkowski vacuum pulled back"
+    },
+    {
+      "phase": "setup",
+      "summary": "Restrict to conformally invariant fields (scalar + EM)",
+      "rationale": "Clean conformal mapping to flat space; gravity much harder and deferred to future work"
+    },
+    {
+      "phase": "setup",
+      "summary": "Power-law FLRW family a(tau)=C_p(tau-tau_*)^p as primary model",
+      "rationale": "Spans broad cosmologies; p>1 gives future causal horizon; analytically tractable"
+    }
+  ],
+  "approximations": [],
+  "convention_lock": {
+    "metric_signature": "mostly-plus",
+    "fourier_convention": "int dk/(2pi) e^{ikx} (standard)",
+    "natural_units": "G = hbar = c = 1",
+    "gauge_choice": "Lorenz gauge for EM: nabla^a A_a = 0",
+    "regularization_scheme": "Point-splitting regularization for coincidence limit; iepsilon prescription for distributional 2-point function",
+    "renormalization_scheme": null,
+    "coordinate_system": "FLRW: (tau,r,theta,phi) proper time; conformal time t via dt = dtau/a(tau); de Sitter eta = -e^{-H tau}/H",
+    "spin_basis": null,
+    "state_normalization": null,
+    "coupling_convention": null,
+    "index_positioning": "Abstract index notation: a,b,c,... spacetime; i,j,k,... spatial",
+    "time_ordering": "Advanced minus retarded Green function: E(x1,x2) = G_adv(x1,x2) - G_ret(x1,x2)",
+    "commutation_convention": "[phi^in(f), phi^in(g)] = i E(f,g) * 1 (field commutator)",
+    "levi_civita_sign": null,
+    "generator_normalization": null,
+    "covariant_derivative_sign": null,
+    "gamma_matrix_convention": null,
+    "creation_annihilation_order": null,
+    "custom_conventions": {}
+  },
+  "propagated_uncertainties": [],
+  "pending_todos": [],
+  "blockers": [],
+  "session": {
+    "last_date": null,
+    "stopped_at": null,
+    "resume_file": null
+  },
+  "_version": 1,
+  "_synced_at": "2026-03-27T21:06:20.917525+00:00"
+}

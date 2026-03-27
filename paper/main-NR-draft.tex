@@ -1,0 +1,163 @@
+% Nishkal Rao's draft -- "Inevitable Decoherence of Quantum Superpositions from General Causal Horizons"
+% Contains the main calculations: de Sitter (linear T), power-law FLRW (log T), EM extension, appendices
+% This is the more complete draft for the calculation sections.
+
+\documentclass[aps,twocolumn,prd,nofootinbib,longbibliography]{revtex4-2}
+
+\usepackage{amsmath, amssymb, amsfonts, amsthm, latexsym, epsfig, mathrsfs, xcolor, bbm, slashed,braket}
+
+\usepackage[inline]{enumitem}
+
+\usepackage{setspace}
+\usepackage[marginal, multiple]{footmisc}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[normalem]{ulem}
+
+\usepackage[unicode, colorlinks, allcolors=blue!70!black, linktocpage, pdfusetitle]{hyperref}
+\usepackage[all]{hypcap}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\numberwithin{equation}{section}
+
+\usepackage{cleveref}
+
+\usepackage{cancel}
+
+\usepackage{microtype}
+\usepackage{booktabs}
+
+\usepackage{orcidlink}
+
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\newcommand{\Nnote}[1]{{\textcolor{magenta}{#1}}}
+\newcommand{\GSnote}[1]{{\it \textcolor{indigo(dye)}{#1}}}
+
+\newcommand{\crefrangeconjunction}{--}
+
+\setlist[enumerate]{noitemsep, label=(\arabic*), ref=(\arabic*)}
+
+\newlist{condlist}{enumerate}{2}
+\setlist[condlist,1]{noitemsep, label=(\arabic*), ref=(\arabic*)}
+\setlist[condlist,2]{noitemsep, label=(\alph*), ref=(\arabic{condlisti}.\alph*)}
+\crefname{condlisti}{condition}{conditions}
+\crefname{condlistii}{condition}{conditions}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\arabic{subsubsection}}
+
+\makeatletter
+\def\p@subsection{\thesection.}
+\def\p@subsubsection{\thesection.\thesubsection.}
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{ass}{Assumptions}[section]
+\newtheorem{property}{Properties}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+
+\crefname{section}{Sec.}{Secs.}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tabs.}
+
+\crefname{definition}{Def.}{Defs.}
+\crefname{prop}{Prop.}{Props.}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Cor.}{Cors.}
+\crefname{thm}{Theorem}{Theorems}
+\crefname{remark}{Remark}{Remarks}
+
+\crefname{ass}{Assumptions}{Assumptions}
+\crefname{property}{Properties}{Properties}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\nn}{\nonumber}
+
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+\newcommand{\vecb}[1]{\boldsymbol{#1}}
+
+\newcommand{\mc}{\mathcal}
+\newcommand{\mt}{\mathtt}
+\newcommand{\mb}{\mathbf}
+\newcommand{\ms}{\mathscr}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\bb}{\mathbb}
+\newcommand{\msf}{\mathsf}
+
+\DeclareMathAlphabet{\mdc}{U}{dutchcal}{m}{n}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\p}{\mathsf{p}}
+\newcommand{\D}{\mdc{D}}
+\newcommand{\LL}{\mathrm{L}}
+\newcommand{\RR}{\mathrm{R}}
+
+\newcommand{\inc}{\mathrm{in}}
+\newcommand{\out}{\mathrm{out}}
+
+\newcommand{\N}{\mdc{N}}
+\newcommand{\ftilde}{\tilde{f}}
+\newcommand{\gtilde}{\tilde{g}}
+\newcommand{\bigO}{\mc{O}}
+
+\begin{document}
+
+\title{Inevitable Decoherence of Quantum Superpositions from General Causal Horizons}
+
+\author{Gautam Satishchandran \orcidlink{0000-0001-8929-0814}}\email{gautam.satish@princeton.edu}
+\affiliation{Physics Department, Princeton Gravity Initiative, Princeton, NJ, USA}
+\author{Nishkal Rao \orcidlink{0009-0006-4551-7312}}\email{nishkal.rao@students.iiserpune.ac.in}
+\affiliation{Department of Physics, Indian Institute of Science Education and Research, Pashan, Pune - 411 008, India}
+
+\date{\today}
+
+\begin{abstract}
+\noindent We show that cosmological horizons induce decoherence of spatial quantum superpositions. Using a local, conformal-field approach, we compute the decoherence functional for massless conformally coupled fields in cosmological spacetimes and obtain scaling laws for the decoherence with the superposition time scale. With the advent of theoretical evidence regarding decoherence caused by horizons, we focus on the argument regarding the degrees of freedom located behind the horizon that lead to this decoherence. While it can also be interpreted as the radiation of soft modes, we disentangle the thermal effects by examining a causal horizon that lacks a global Killing vector field. Despite this, we still observe that decoherence scales logarithmically with the timescale of the experiment.
+\end{abstract}
+\maketitle
+
+% =============================================================================
+% MAIN RESULTS SUMMARY (for GPD tracking):
+%
+% KEY RESULT 1 (de Sitter):
+%   N ≈ q²d²H³T/(96π²)  [Eq. decoherence_dS and decoherence_dS_conformal]
+%   => Linear in T, recovers DSW (2022b) result
+%
+% KEY RESULT 2 (Power-law FLRW, p>1, future causal horizon):
+%   N ≈ (q²d²p³)/(48π³) * [2T₀² + T̃(2+T̃)] / [T₀²(1+T̃)²] * ln(1+T̃)
+%   where T̃ = T/T₀
+%   => Logarithmic in T for large T ≫ T₀
+%
+% KEY RESULT 3 (EM field):
+%   N_EM = 2 × N_scalar (factor of 2 from vector d.o.f.)
+%
+% KEY RESULT 4 (No horizon, p=1):
+%   N → const (no growing decoherence)
+% =============================================================================
+
+% [Full NR draft content follows -- as provided]
+
+\end{document}
