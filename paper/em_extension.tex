@@ -1,0 +1,190 @@
+% =============================================================================
+% Section VI: Electromagnetic Field
+% paper/em_extension.tex
+% =============================================================================
+
+\section{Electromagnetic Field}
+\label{sec:em}
+
+The decoherence calculations of \cref{sec:powerlaw,sec:desitter} were carried
+out for a conformally coupled massless scalar field.  The physically more
+important case of an electrically charged body emitting photons is governed
+instead by the Maxwell field.  Fortunately, the Maxwell action is conformally
+invariant in four spacetime dimensions, so the electromagnetic case follows
+from the scalar calculation by a short additional argument.  The main result
+of this section is that the electromagnetic decoherence number is exactly
+twice the scalar result:
+%
+\be
+  \Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}
+  \label{eq:N-EM-factor2}
+\ee
+%
+for all conformally flat cosmologies, including every member of the power-law
+family and de Sitter.  The factor of 2 counts the two independent physical
+polarizations of the photon.
+
+\subsection{Conformal invariance of the Maxwell field}
+\label{sec:em-conformal}
+
+The Maxwell action in a curved spacetime $(M, g_{ab})$ is
+%
+\be
+  S_{\rm EM}
+  =
+  -\frac{1}{4}\int F_{ab}\,F^{ab}\,\sqrt{-g}\;\mathrm{d}^4x \,,
+  \label{eq:Maxwell-action}
+\ee
+%
+where $F_{ab} = \nabla_a A_b - \nabla_b A_a$ is the electromagnetic field
+strength tensor.  Under a Weyl rescaling $g_{ab} \to \Omega^2(x)\,g_{ab}$,
+the combination $F_{ab}\,F^{ab}\,\sqrt{-g}$ is invariant in four dimensions:
+$F^{ab} = g^{ac}g^{bd}F_{cd}$ acquires a factor $\Omega^{-4}$ while
+$\sqrt{-g}$ acquires $\Omega^4$, leaving the product unchanged.  Therefore
+\cref{eq:Maxwell-action} is conformally invariant in $d = 4$, and the
+equations of motion for $A_a$ are identical in the physical FLRW metric and
+in the conformally related Minkowski metric.
+
+In the Lorenz gauge $\nabla^a A_a = 0$, the field equation reduces to
+%
+\be
+  \Box_g A_a = j_a \,,
+  \label{eq:Maxwell-eom}
+\ee
+%
+where $j_a$ is the charge current and $\Box_g = g^{ab}\nabla_a\nabla_b$.
+Under the conformal rescaling $g_{ab} = \Scfac^2(\eta)\,\eta_{ab}$, the
+rescaled potential $\tilde{A}_a \equiv A_a$ (with lower index) satisfies
+the flat-space wave equation $\Box_\eta \tilde{A}_a = \tilde{j}_a$ — the
+conformal weight of the Maxwell field is zero for a covariant vector in four
+dimensions~\cite{Wald84}.  The free in-modes of $A_a^{\rm in}$ are thus
+in one-to-one correspondence with the flat-space photon modes, and the
+conformal vacuum for the Maxwell field is again the pullback of the Minkowski
+photon vacuum.
+
+\subsection{Electromagnetic Wightman function and decoherence}
+\label{sec:em-deco}
+
+The electromagnetic Wightman 2-point function in the conformal vacuum is
+%
+\be
+  \langle\Psi_0|\,A_a^{\rm in}(x_1)\,A_b^{\rm in}(x_2)\,|\Psi_0\rangle
+  =
+  W_{ab}^{\rm Mink}(x_1, x_2) \,,
+  \label{eq:EM-Wight}
+\ee
+%
+where $W_{ab}^{\rm Mink}$ is the flat-space photon propagator in Lorenz gauge.
+The FLRW conformal factors drop out because the covariant potential $A_a$ has
+conformal weight zero, in contrast to the scalar field $\varphi$ of
+\cref{eq:Wight-conformal-relation} whose conformal weight is $-1$.  (The
+scalar $\varphi$ and the photon $A_a$ carry different conformal weights, but
+both fields are conformally invariant in the sense that their dynamics in FLRW
+are governed by the flat-space wave operator.)
+
+For a charge $q$ whose center-of-mass is in a superposition of worldlines
+$\gamma_1$ and $\gamma_2$, the electromagnetic current difference is
+%
+\be
+  j_1^a(x) - j_2^a(x)
+  \approx
+  q\, d(\tau)\, s^a\, \nabla_b\, \delta^{(3)}\!\lb(\mb{x} - \mb{X}(\tau)\rb) \,,
+  \label{eq:EM-current-dipole}
+\ee
+%
+in the same dipole approximation as \cref{eq:dipole}.  Substituting
+\cref{eq:EM-current-dipole} into the electromagnetic analogue of
+\cref{eq:Gamma-exact},
+%
+\be
+  \Gamma_{\rm EM}
+  =
+  \langle\Psi_0|\,
+    \lb[A_a^{\rm in}(j_1^a - j_2^a)\rb]^2
+  \,|\Psi_0\rangle \,,
+  \label{eq:Gamma-EM}
+\ee
+%
+we find that the integrand factorizes into a transverse-polarization sum and
+the scalar Wightman kernel.  Explicitly, the flat-space photon propagator in
+Lorenz gauge at coincident spatial points takes the form
+%
+\be
+  W^{\rm Mink}_{ij}(\eta, \mb{X};\, \eta', \mb{X})
+  =
+  \Pi_{ij}^{\rm T} \cdot W_{\rm Mink}(\eta, \mb{X};\, \eta', \mb{X}) \,,
+  \label{eq:EM-polarization-sum}
+\ee
+%
+where $\Pi_{ij}^{\rm T} = \delta_{ij} - \hat{x}_i \hat{x}_j$ is the
+transverse projector averaged over the direction of emission, and
+$W_{\rm Mink}$ is the scalar Wightman function of \cref{eq:Wight-conformal-relation}.
+Contracting with the dipole source $s^i s^j$ and summing over the transverse
+directions,
+%
+\be
+  s^i s^j\,\Pi_{ij}^{\rm T}
+  =
+  s^i s^j \lb(\delta_{ij} - \hat{k}_i \hat{k}_j\rb)
+  \label{eq:polarization-contraction}
+\ee
+%
+and integrating over all emission directions $\hat{k}$, one obtains
+$\int \mathrm{d}^2\hat{k}\, s^i s^j(\delta_{ij} - \hat{k}_i\hat{k}_j) = 2\times$
+the corresponding scalar integral~\cite{DSW2022,Danielson:2022tdw}.  The factor
+of 2 counts the two independent transverse polarization states of the photon:
+for each propagation direction, a massless spin-1 field has two physical
+degrees of freedom, compared to the single degree of freedom of the scalar.
+Therefore,
+%
+\be
+  \Gamma_{\rm EM} = 2\,\Gamma_{\rm scalar} \,,
+  \label{eq:Gamma-EM-2}
+\ee
+%
+and consequently $\Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}$, establishing
+\cref{eq:N-EM-factor2}.
+
+\subsection{Summary of electromagnetic results}
+\label{sec:em-summary}
+
+Combining \cref{eq:N-EM-factor2} with the scalar results of
+\cref{sec:powerlaw,sec:desitter}, the electromagnetic decoherence numbers are:
+
+\begin{itemize}[noitemsep]
+  \item \emph{De Sitter spacetime:}
+  %
+  \be
+    \Nnum_{\rm EM}^{\rm dS}
+    =
+    \frac{q^2 d_0^2 H^3}{48\pi^2}\, T \,,
+    \label{eq:N-EM-dS}
+  \ee
+  %
+  linear in the superposition time $T$, with the thermal prefactor
+  proportional to $T_{\rm GH}^3 = (H/2\pi)^3$.
+
+  \item \emph{Power-law FLRW with $p > 1$:}
+  %
+  \be
+    \Nnum_{\rm EM}^{\rm power-law}
+    \;\sim\;
+    \frac{q^2 d_0^2 p^3}{24\pi^3\,T_0^2}\,\ln\!\lb(\frac{T}{T_0}\rb) ,
+    \qquad T \gg T_0 \,,
+    \label{eq:N-EM-PL}
+  \ee
+  %
+  logarithmic for large $T$, with the same non-thermal prefactor as the
+  scalar result and no Gibbons-Hawking temperature structure.
+\end{itemize}
+
+The universality of the factor of 2 across all conformally flat FLRW backgrounds
+is a direct consequence of conformal invariance: the photon polarization count
+is a kinematic property of the field that is independent of the background
+geometry.  We collect all decoherence results — scalar and electromagnetic, de
+Sitter and power-law — in Table~\ref{tab:summary} of \cref{sec:discussion}.
+
+%% CITATIONS NEEDED (for gpd-bibliographer):
+%% - Wald84        -- Wald, General Relativity (1984) [conformal weights]
+%% - DSW2022       -- Danielson, Satishchandran, Wald (2022b) IJMPD 31, 2241003
+%% - Danielson:2022tdw -- DSW (2023) PRD 108, 025007
