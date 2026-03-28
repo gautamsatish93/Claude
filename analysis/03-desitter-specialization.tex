@@ -1,0 +1,350 @@
+% =============================================================================
+% MATHEMATICAL ANALYSIS 03: De Sitter Specialization
+% Stand-alone derivation for inspection
+% =============================================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\Scfac}{a}
+\newcommand{\Wight}{W}
+\newcommand{\Nnum}{\mathcal{N}}
+\newcommand{\pd}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+
+\title{Analysis 03: De Sitter Specialization and Gibbons-Hawking Temperature}
+\author{Calculation Notes --- Satishchandran \& Rao}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{De Sitter scale factor and conformal time}
+
+De Sitter spacetime in flat slicing has scale factor $\Scfac(t_{\rm phys}) = e^{Ht_{\rm phys}}$,
+where $t_{\rm phys}$ is cosmological time and $H$ is the Hubble constant.
+The conformal time $\eta$ is related by $d\eta = dt_{\rm phys}/\Scfac(t_{\rm phys})$:
+%
+\begin{equation}
+  \eta = \int \frac{dt_{\rm phys}}{e^{Ht_{\rm phys}}} = -\frac{e^{-Ht_{\rm phys}}}{H} \,,
+  \quad
+  \eta \in (-\infty, 0) \,.
+\end{equation}
+%
+Inverting: $e^{Ht_{\rm phys}} = -1/(H\eta)$, so the scale factor in conformal time is
+%
+\begin{equation}
+  \Scfac(\eta) = -\frac{1}{H\eta} \,, \quad \eta < 0 \,.
+  \label{eq:a-dS}
+\end{equation}
+%
+Note $\Scfac > 0$ since $\eta < 0$.  As $\eta \to 0^{-}$, $\Scfac \to +\infty$
+(future boundary).
+
+\section*{Wightman function in de Sitter conformal vacuum}
+
+From the general formula (Analysis~01 / paper Sec.~III-C):
+%
+\begin{equation}
+  \Wight(x_{1},x_{2})
+  =
+  \frac{-1}{4\pi^{2}\,\Scfac(\eta_{1})\,\Scfac(\eta_{2})\,\tilde{\sigma}_{\varepsilon}} \,,
+  \qquad
+  \tilde{\sigma}_{\varepsilon} = -(\eta_{1}-\eta_{2}-i\varepsilon)^{2}+|\Delta\mathbf{x}|^{2} \,.
+\end{equation}
+%
+Substituting \eqref{eq:a-dS}:
+%
+\begin{equation}
+  \frac{1}{\Scfac(\eta_{1})\Scfac(\eta_{2})} = H^{2}\eta_{1}\eta_{2} \,,
+\end{equation}
+%
+so
+%
+\begin{equation}
+  \Wight_{\rm dS}(x_{1},x_{2})
+  =
+  \frac{-H^{2}\eta_{1}\eta_{2}}{4\pi^{2}\,\tilde{\sigma}_{\varepsilon}} \,.
+  \label{eq:W-dS-general}
+\end{equation}
+%
+At \emph{coincident} spatial position $\mathbf{x}_{1}=\mathbf{x}_{2}$:
+$\tilde{\sigma}_{\varepsilon} = -(\eta_{1}-\eta_{2}-i\varepsilon)^{2}$, giving
+%
+\begin{equation}
+  \Wight_{\rm dS}(\eta_{1},\mathbf{X};\,\eta_{2},\mathbf{X})
+  =
+  \frac{H^{2}\eta_{1}\eta_{2}}{4\pi^{2}(\eta_{1}-\eta_{2}-i\varepsilon)^{2}} \,.
+  \label{eq:W-dS-coincident}
+\end{equation}
+
+\section*{Decoherence integral: conformal factors}
+
+The decoherence exponent (paper eq.~(Gamma-conformal)) in conformal time is
+%
+\begin{equation}
+  \Gamma
+  =
+  q^{2}d_{0}^{2}\int\!\!\int d\eta_{1}\,d\eta_{2}\;
+  \Scfac(\eta_{1})\Scfac(\eta_{2})\;
+  \hat{s}^{a}\hat{s}^{b}\pd_{a}\pd_{b}\,
+  \Wight_{\rm dS}(\eta_{1},\mathbf{X};\eta_{2},\mathbf{X}) \,.
+\end{equation}
+%
+The spatial derivative (after averaging, cf.\ Analysis~02 Step~1) gives a factor
+$1/(3\Scfac(\eta_{1})\Scfac(\eta_{2}))$ from the chain rule, times $\pd_{\eta}^{2}$
+acting on $\Wight$.  Computing $\pd_{\eta_{1}}^{2}[\Wight_{\rm dS}]$ at coincident points:
+using \eqref{eq:W-dS-coincident},
+%
+\begin{align}
+  \hat{s}^{a}\hat{s}^{b}\pd_{a}\pd_{b}\,\Wight_{\rm dS}\big|_{\rm coincident}
+  &\approx
+  -\frac{1}{3\Scfac(\eta_{1})\Scfac(\eta_{2})}
+  \cdot\pd_{\eta_{1}}^{2}\lb[\frac{-1}{\tilde\sigma_\varepsilon}\rb] \,.
+\end{align}
+
+The key point is the \emph{conformal cancellation}: the two factors of $\Scfac$ from
+$d\tau_{1}\,d\tau_{2} = \Scfac(\eta_{1})\Scfac(\eta_{2})\,d\eta_{1}\,d\eta_{2}$
+cancel the $1/[\Scfac(\eta_{1})\Scfac(\eta_{2})]$ from the spatial derivative of
+$\Wight$, \emph{regardless} of the value of $H\eta_{1}\eta_{2}$.  More precisely:
+
+The spatial derivative gives a factor $\sim \Wight / (\text{spatial scale})^{2}$, but
+at coincident spatial points the relevant factor is:
+%
+\begin{equation}
+  \Scfac^{2}\times\lb(\frac{-1}{\Scfac_{1}\Scfac_{2}}\rb)\times\frac{d^{2}}{d\eta^{2}}[\cdots]
+  = -\frac{d^{2}}{d\eta^{2}}[\cdots] \,.
+\end{equation}
+%
+After the cancellation, the integrand in $d\eta_{1}\,d\eta_{2}$ is exactly
+$1/(\eta_{1}-\eta_{2}-i\varepsilon)^{4}$ — the same flat-space kernel as for the
+power-law family.  Crucially, the $\eta_{1}\eta_{2}$ factor from
+\eqref{eq:W-dS-coincident} also cancels: it is cancelled by the Jacobian
+factors $d\tau = \Scfac\,d\eta = (-1/(H\eta))\,d\eta$, which contribute $\eta_{1}\eta_{2}/H^{2}$.
+Combining:
+%
+\begin{align}
+  \Gamma_{\rm dS}
+  &=
+  \frac{q^{2}d_{0}^{2}}{12\pi^{2}}
+  \,\mathrm{Re}\int_{\eta_{\rm on}}^{\eta_{\rm off}}d\eta_{1}
+  \int_{\eta_{\rm on}}^{\eta_{\rm off}}d\eta_{2}\;
+  \frac{1}{(\eta_{1}-\eta_{2}-i\varepsilon)^{4}} \,,
+  \label{eq:Gamma-dS-conformal}
+\end{align}
+%
+which is the universal flat-space integral \eqref{eq:Gamma-start} of Analysis~02,
+with $\Delta\eta = \eta_{\rm off}-\eta_{\rm on}$.
+
+\section*{Conformal-time duration in de Sitter}
+
+Proper time $\tau$ is related to $\eta$ by
+$d\tau = \Scfac(\eta)\,d\eta = -d\eta/(H\eta)$.
+Integrating from $\tau_{\rm on}$ to $\tau_{\rm on}+T$:
+%
+\begin{align}
+  \Delta\eta
+  &=
+  \int_{\tau_{\rm on}}^{\tau_{\rm on}+T}\frac{d\tau}{\Scfac(\tau)}
+  = H\int_{\tau_{\rm on}}^{\tau_{\rm on}+T}(-\eta(\tau))\,d\tau \nonumber\\
+  &=
+  -\int_{\tau_{\rm on}}^{\tau_{\rm on}+T}e^{-H\tau_{\rm phys}}\,d\tau_{\rm phys}
+  = \frac{1}{H}\lb(e^{-H\tau_{\rm on}} - e^{-H(\tau_{\rm on}+T)}\rb)
+  = \frac{e^{-H\tau_{\rm on}}}{H}\lb(1-e^{-HT}\rb) \,.
+  \label{eq:Delta-eta-dS}
+\end{align}
+%
+In the limit $T\gg 1/H$ (long superposition):
+$\Delta\eta \to e^{-H\tau_{\rm on}}/H = |\eta_{\rm on}| = 1/(H\Scfac_{\rm on})$.
+The conformal time range saturates at $|\eta_{\rm on}|$: this is the conformal
+horizon distance.
+
+For $T\ll 1/H$:
+$\Delta\eta \approx e^{-H\tau_{\rm on}}\cdot T = |\eta_{\rm on}| HT \cdot (1/H) = |\eta_{\rm on}|HT$,
+so $\Delta\eta \approx HT\,|\eta_{\rm on}|$ is linear in $T$.
+
+\section*{De Sitter decoherence number}
+
+From Analysis~02, $\Gamma = q^{2}d_{0}^{2}/(36\pi^{2}\Delta\eta^{2})$ (after UV subtraction).
+For the de Sitter case with $\Delta\eta = |\eta_{\rm on}|(1-e^{-HT})$:
+%
+\begin{equation}
+  \Nnum_{\rm dS}
+  =
+  \frac{q^{2}d_{0}^{2}}{72\pi^{2}|\eta_{\rm on}|^{2}(1-e^{-HT})^{2}} \,.
+\end{equation}
+%
+For $HT\ll 1$: $(1-e^{-HT})\approx HT$, giving
+$\Nnum_{\rm dS}\approx q^{2}d_{0}^{2}/(72\pi^{2}|\eta_{\rm on}|^{2}H^{2}T^{2})$,
+which \emph{decreases} as $T$ increases.  This cannot be right.
+
+\textbf{FLAG FOR AUTHORS:} The linear growth $\Nnum_{\rm dS} = q^{2}d_{0}^{2}H^{3}T/(96\pi^{2})$
+implies the integral evaluates differently for de Sitter — specifically, it must scale as
+$\propto \Delta\eta^{2}\cdot(1/\Delta\eta)^{2}\cdot T \propto T$ rather than $1/\Delta\eta^{2}$.
+This means either:
+(a) The correct form of the double integral for de Sitter is not $1/\Delta\eta^{2}$ but
+    something involving $H^{2}$ directly (the $\eta_{1}\eta_{2}$ factor does not fully cancel),
+    or
+(b) The $q^{2}d_{0}^{2}H^{3}T$ result requires keeping track of $\eta_{\rm on}$-dependent
+    prefactors and then taking an appropriate limit.
+
+\medskip
+
+\noindent
+\textbf{Alternative approach — direct evaluation:}
+The de Sitter Wightman function at coincident spatial position,
+$\Wight_{\rm dS} = H^{2}\eta_{1}\eta_{2}/[4\pi^{2}(\eta_{1}-\eta_{2}-i\varepsilon)^{2}]$,
+does NOT reduce to the simple $1/(\eta_1-\eta_2)^4$ kernel after spatial differentiation,
+because the $\eta_{1}\eta_{2}$ factor in the numerator introduces additional $\eta$-dependence.
+
+Computing the spatial derivative more carefully:
+$\hat{s}^{i}\hat{s}^{j}\partial_{x^i}\partial_{x'^j}\Wight|_{x=x'}$.
+At coincident spatial points, $\tilde\sigma = -(\eta_1-\eta_2-i\varepsilon)^2$.
+The spatial derivative of $\Wight = -H^{2}\eta_{1}\eta_{2}/[4\pi^{2}(-(\eta_1-\eta_2-i\varepsilon)^2)]$
+with respect to $x^{i}$ picks up a factor from $\partial/\partial x^i(\tilde\sigma^{-1})$:
+%
+\begin{equation}
+  \frac{\partial}{\partial x^{i}}\frac{1}{\tilde\sigma}
+  =
+  -\frac{\partial_i\tilde\sigma}{\tilde\sigma^{2}}
+  =
+  \frac{-2(x^{i}-x'^{i})}{\tilde\sigma^{2}} \,.
+\end{equation}
+%
+At coincident points $x^{i}=x'^{i}$, this vanishes!  So we need to take the second
+mixed derivative $\partial/\partial x^{i}\partial/\partial x'^{j}$:
+%
+\begin{align}
+  \frac{\partial^{2}}{\partial x^{i}\partial x'^{j}}\frac{1}{\tilde\sigma}
+  &=
+  \frac{\partial}{\partial x'^{j}}\frac{-2(x^{i}-x'^{i})}{\tilde\sigma^{2}} \nonumber\\
+  &=
+  \frac{2\delta_{ij}}{\tilde\sigma^{2}}
+  +\frac{-2(x^{i}-x'^{i})\cdot(-2)\cdot\partial_{x'^{j}}\tilde\sigma}{\tilde\sigma^{3}} \,.
+\end{align}
+%
+At $x=x'$: the second term vanishes (factor of $(x^{i}-x'^{i})$), so
+%
+\begin{equation}
+  \frac{\partial^{2}}{\partial x^{i}\partial x'^{j}}\frac{1}{\tilde\sigma}\bigg|_{x=x'}
+  =
+  \frac{2\delta_{ij}}{\tilde\sigma^{2}}\bigg|_{|\Delta x|=0}
+  =
+  \frac{2\delta_{ij}}{(\eta_{1}-\eta_{2}-i\varepsilon)^{4}} \,.
+\end{equation}
+%
+Contracting $\hat{s}^{i}\hat{s}^{j}\cdot(2\delta_{ij}/(\eta_1-\eta_2)^4)\cdot(1/3)=2/(3(\eta_1-\eta_2)^4)$.
+
+Including the $H^2\eta_1\eta_2/(4\pi^2)$ prefactor from $\Wight_{\rm dS}$:
+%
+\begin{align}
+  \Gamma_{\rm dS}
+  &=
+  q^{2}d_{0}^{2}\int\!\!\int d\eta_{1}d\eta_{2}\;
+  \Scfac(\eta_{1})\Scfac(\eta_{2})\;
+  \frac{H^{2}\eta_{1}\eta_{2}}{4\pi^{2}}\cdot\frac{2}{3(\eta_{1}-\eta_{2}-i\varepsilon)^{4}} \nonumber\\
+  &=
+  \frac{q^{2}d_{0}^{2}H^{2}}{6\pi^{2}}
+  \int\!\!\int d\eta_{1}d\eta_{2}\;
+  \underbrace{\Scfac(\eta_{1})\Scfac(\eta_{2})\eta_{1}\eta_{2}}_{= H^{-2}\eta_{1}^{2}\eta_{2}^{2}\cdot H^{2}/(\eta_{1}\eta_{2})^{2} = 1}
+  \cdot\frac{1}{(\eta_{1}-\eta_{2}-i\varepsilon)^{4}} \,.
+\end{align}
+
+Wait — let me be careful: $\Scfac(\eta) = -1/(H\eta)$, so
+$\Scfac(\eta_{1})\Scfac(\eta_{2}) = 1/(H^{2}\eta_{1}\eta_{2})$ (with $\eta<0$, so
+$\eta_{1}\eta_{2}>0$ and $\Scfac>0$).  Therefore:
+%
+\begin{equation}
+  \Scfac(\eta_{1})\Scfac(\eta_{2})\cdot H^{2}\eta_{1}\eta_{2}
+  = \frac{H^{2}\eta_{1}\eta_{2}}{H^{2}\eta_{1}\eta_{2}} = 1 \,.
+\end{equation}
+%
+So the $\eta_{1}\eta_{2}$ factor cancels perfectly:
+%
+\begin{equation}
+  \Gamma_{\rm dS}
+  =
+  \frac{q^{2}d_{0}^{2}}{6\pi^{2}}
+  \,\mathrm{Re}\int_{\eta_{\rm on}}^{\eta_{\rm off}}d\eta_{1}
+  \int_{\eta_{\rm on}}^{\eta_{\rm off}}d\eta_{2}\;
+  \frac{1}{(\eta_{1}-\eta_{2}-i\varepsilon)^{4}} \,,
+\end{equation}
+%
+which is indeed the universal flat-space integral (the factor is $1/6\pi^{2}$ here,
+vs $1/12\pi^{2}$ in Analysis~02 — the discrepancy is the factor of 2 from the
+$2\delta_{ij}$ vs $\delta_{ij}/3$ averaging; I get $2/(3\cdot 4\pi^{2}) = 1/6\pi^{2}$
+while Analysis~02 gets $1/12\pi^{2}$.  CHECK: $2/(3\cdot 4\pi^{2}) = 2/12\pi^{2} = 1/6\pi^{2}$
+vs the paper's starting formula with $q^2d_0^2/(12\pi^2)$.  There may be an additional
+factor of $1/2$ from the symmetry factor or the direction averaging.)
+
+From Analysis~02, the UV-finite integral equals $1/(3\Delta\eta^{2})$, giving
+%
+\begin{equation}
+  \Gamma_{\rm dS} = \frac{q^{2}d_{0}^{2}}{18\pi^{2}\Delta\eta^{2}} \,,
+\end{equation}
+%
+with $\Delta\eta = |\eta_{\rm on}|(1-e^{-HT})$.
+
+For $HT\ll 1$: $\Delta\eta \approx |\eta_{\rm on}|HT$, giving
+%
+\begin{equation}
+  \Gamma_{\rm dS}\big|_{HT\ll 1}
+  \approx
+  \frac{q^{2}d_{0}^{2}}{18\pi^{2}|\eta_{\rm on}|^{2}H^{2}T^{2}} \,.
+\end{equation}
+%
+This scales as $T^{-2}$, NOT $T$.  The linear-in-$T$ behavior requires $T\gg 1/H$.
+
+\textbf{FLAG FOR AUTHORS (critical):} The linear growth
+$\Nnum_{\rm dS} = q^{2}d_{0}^{2}H^{3}T/(96\pi^{2})$ is the result for
+$HT\gg 1$ (late time), not for short times.  For long proper time $T\gg 1/H$:
+$\Delta\eta \to |\eta_{\rm on}| = e^{-H\tau_{\rm on}}/H = \Scfac_{\rm on}^{-1}/H$.
+
+\section*{Gibbons-Hawking temperature}
+
+The result $\Nnum_{\rm dS} = q^{2}d_{0}^{2}H^{3}T/(96\pi^{2})$ (from DSW 2023)
+can be rewritten using $T_{\rm GH} = H/(2\pi)$:
+%
+\begin{equation}
+  H^{3} = (2\pi T_{\rm GH})^{3} = 8\pi^{3}T_{\rm GH}^{3} \,,
+\end{equation}
+%
+so
+%
+\begin{equation}
+  \Nnum_{\rm dS}
+  =
+  \frac{q^{2}d_{0}^{2}\cdot 8\pi^{3}T_{\rm GH}^{3}T}{96\pi^{2}}
+  =
+  \frac{\pi q^{2}d_{0}^{2}T_{\rm GH}^{3}T}{12} \,.
+  \label{eq:N-dS-TGH}
+\end{equation}
+%
+\textbf{Check:} $8\pi^{3}/(96\pi^{2}) = 8\pi/96 = \pi/12$ \checkmark.
+
+This has the structure $\Nnum \propto T_{\rm GH}^{3}\cdot T$, matching the thermal
+decoherence rate for a dipole in a heat bath at temperature $T_{\rm GH}$.
+
+\section*{Summary of flags for authors}
+
+\begin{enumerate}
+\item The $1/(6\pi^{2})$ vs $1/(12\pi^{2})$ discrepancy in the prefactor of the
+  flat-space double integral needs resolution: check the spatial derivative
+  computation including the factor from $\hat{s}^{i}\hat{s}^{j}$ averaging.
+
+\item The $\Delta\eta^{-2}$ behavior gives $T^{-2}$ for small $T$ and saturates
+  for large $T$, inconsistent with linear growth.  The linear-in-$T$ result from DSW
+  must come from a different regime or a more careful treatment of the $\eta_{\rm on}$
+  dependence.  Clarify whether DSW compute $\Gamma/T$ in the $T\to\infty$ limit or
+  define $\Nnum$ differently.
+
+\item Verify all numerical prefactors against DSW~(2023) by checking the exact mode
+  decomposition they use.
+\end{enumerate}
+
+\end{document}

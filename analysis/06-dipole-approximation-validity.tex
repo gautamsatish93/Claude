@@ -1,0 +1,179 @@
+% =============================================================================
+% MATHEMATICAL ANALYSIS 06: Validity of the Dipole Approximation
+% Stand-alone derivation for inspection
+% =============================================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\Scfac}{a}
+\newcommand{\Wight}{W}
+\newcommand{\Nnum}{\mathcal{N}}
+\newcommand{\pd}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+
+\title{Analysis 06: Validity of the Dipole Approximation}
+\author{Calculation Notes --- Satishchandran \& Rao}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{The dipole approximation}
+
+The decoherence calculation uses the dipole approximation, replacing the current difference:
+%
+\begin{equation}
+  j_{1}(x) - j_{2}(x)
+  \approx
+  q\,d(\tau)\,s^{a}\,\nabla_{a}\delta^{(3)}(\mathbf{x}-\mathbf{X}(\tau)) \,.
+  \label{eq:dipole}
+\end{equation}
+%
+This is the leading term in a multipole expansion in powers of the separation $d/\lambda$,
+where $\lambda$ is the characteristic wavelength of field modes contributing to $\Gamma$.
+
+\section*{Structure of the multipole expansion}
+
+The exact current difference, for two point charges separated by $d\,\mathbf{s}$
+along a unit vector $\mathbf{s}$, is:
+%
+\begin{align}
+  j_{1}(\mathbf{x},\tau) - j_{2}(\mathbf{x},\tau)
+  &=
+  q\,\delta^{(3)}\!\lb(\mathbf{x}-\mathbf{X}-\tfrac{d}{2}\mathbf{s}\rb)
+  - q\,\delta^{(3)}\!\lb(\mathbf{x}-\mathbf{X}+\tfrac{d}{2}\mathbf{s}\rb) \nonumber\\
+  &=
+  q\,d\,s^{i}\,\pd_{i}\delta^{(3)}(\mathbf{x}-\mathbf{X})
+  + \frac{q}{24}d^{3}(s^{i}\pd_{i})^{3}\delta^{(3)}(\mathbf{x}-\mathbf{X})
+  + \cdots
+\end{align}
+%
+The expansion involves only odd powers of $d$ (by symmetry under $\mathbf{s}\to-\mathbf{s}$).
+The first correction (octupole) is suppressed by $(d\,k)^{2}$ relative to the dipole,
+where $k$ is the wavenumber.
+
+\section*{Relevant field mode wavelengths}
+
+The decoherence integral is dominated by field modes with conformal wavenumber
+$k \sim 1/\Delta t$ (characteristic scale of the conformal-time integration domain).
+In physical (proper) units, the corresponding wavelength is
+%
+\begin{equation}
+  \lambda_{\rm phys} \sim \Scfac(\tau_{\rm on})\cdot\Delta t \,,
+\end{equation}
+%
+where $\Delta t$ is the conformal time duration of the superposition.
+
+\subsection*{Power-law case ($p>1$)}
+
+The conformal time duration is bounded above by the horizon conformal time:
+%
+\begin{equation}
+  \Delta t \leq t_{\infty} = \frac{u_{\rm on}^{1-p}}{C_{p}(p-1)} \,.
+\end{equation}
+%
+The physical horizon distance at $\tau_{\rm on}$ is
+$d_{H} = \Scfac(\tau_{\rm on})\cdot t_{\infty} = C_{p}u_{\rm on}^{p}\cdot t_{\infty}
+= u_{\rm on}/(p-1)$ (proper distance to horizon).
+The Hubble radius is $R_{H} = \Scfac/\dot{\Scfac} = (\tau_{\rm on}-\tau_{*})/p = u_{\rm on}/p$.
+
+So the effective minimum wavelength (IR cutoff from the horizon) is:
+%
+\begin{equation}
+  \lambda_{\rm eff} \sim d_{H} \sim \frac{u_{\rm on}}{p-1} \sim R_{H} \,.
+\end{equation}
+%
+The dipole approximation requires:
+%
+\begin{equation}
+  d_{0} \ll \lambda_{\rm eff} \sim R_{H} = \frac{u_{\rm on}}{p} \,.
+  \label{eq:dipole-cond-PL}
+\end{equation}
+
+\subsection*{De Sitter case}
+
+The Hubble radius is $R_{H} = 1/H$ (constant), and the effective mode wavelength is
+also $\sim 1/H$.  The dipole condition is:
+%
+\begin{equation}
+  d_{0} \ll \frac{1}{H} \,.
+  \label{eq:dipole-cond-dS}
+\end{equation}
+
+\section*{Error estimate}
+
+The next correction to the decoherence exponent from the octupole term scales as:
+%
+\begin{equation}
+  \frac{\delta\Gamma_{\rm octupole}}{\Gamma_{\rm dipole}}
+  \sim
+  (d_{0}\,k_{\rm eff})^{2}
+  \sim
+  \lb(\frac{d_{0}}{R_{H}}\rb)^{2} \,.
+\end{equation}
+%
+For a laboratory superposition of a mesoscopic object:
+\begin{itemize}
+\item $d_{0} \sim 10^{-9}$~m (nanometer separation)
+\item $R_{H} \sim c/H_{0} \sim 10^{26}$~m (Hubble radius today)
+\end{itemize}
+The relative correction is $(d_{0}/R_{H})^{2} \sim 10^{-70}$: completely negligible.
+
+\section*{The 1/3 factor from angular averaging}
+
+In an isotropic FLRW spacetime, the spatial slices are homogeneous and isotropic
+(maximally symmetric).  The decoherence exponent involves
+$\hat{s}^{i}\hat{s}^{j}\langle\pd_{i}\pd_{j}\Wight\rangle$, where the angular average
+is over the possible orientations of the dipole $\hat\mathbf{s}$.
+
+For an isotropic kernel $K_{ij} = f(\tau_{1},\tau_{2})\delta_{ij}$:
+%
+\begin{equation}
+  \hat{s}^{i}\hat{s}^{j}K_{ij}
+  = f(\tau_{1},\tau_{2})\,|\hat\mathbf{s}|^{2} = f(\tau_{1},\tau_{2}) \,.
+\end{equation}
+
+However, the relevant tensor at coincident spatial points is not $\delta_{ij}$ but rather
+comes from $\pd_{i}\pd_{j'}(1/\tilde\sigma)|_{x=x'} = 2\delta_{ij}/(\eta_1-\eta_2)^4$.
+This is already proportional to $\delta_{ij}$, so
+$\hat{s}^{i}\hat{s}^{j}\cdot(2\delta_{ij}/(\eta_1-\eta_2)^4) = 2/(\eta_1-\eta_2)^4$.
+
+The factor of $1/3$ does \emph{not} come from the $\delta_{ij}$ contraction alone; it
+comes from the angular average of $\hat{s}^i\hat{s}^j$ over all orientations:
+%
+\begin{equation}
+  \langle\hat{s}^{i}\hat{s}^{j}\rangle = \frac{\delta^{ij}}{3} \,.
+\end{equation}
+%
+This applies when the superposition orientation is not fixed but random, or when the
+paper derives a result valid for a specific orientation and then states the formula for
+the ``averaged'' case.  \textbf{FLAG FOR AUTHORS:} Clarify whether the $1/3$ is an
+actual average over dipole orientations or whether it arises from the specific geometry
+of the computation (e.g., taking only the component of the Wightman function relevant
+to the physical decoherence).  The paper should state explicitly whether
+$\Nnum$ is for a fixed orientation $\hat\mathbf{s}$ or an orientation-averaged result.
+
+\section*{Summary of validity conditions}
+
+\begin{center}
+\begin{tabular}{lll}
+\hline
+Spacetime & Condition & Size of next correction \\
+\hline
+Power-law ($p>1$) & $d_{0}\ll u_{\rm on}/p$ & $(pd_0/u_{\rm on})^2$ \\
+De Sitter & $d_{0}\ll 1/H$ & $(d_{0}H)^2$ \\
+\hline
+\end{tabular}
+\end{center}
+
+Both conditions are trivially satisfied for any laboratory-scale superposition in a
+cosmological background ($d_0 H \lesssim 10^{-35}$ for $d_0\sim 1$~nm and $H\sim H_0$).
+The dipole approximation is exact at the precision relevant for all physically realizable experiments.
+
+\end{document}

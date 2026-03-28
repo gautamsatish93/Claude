@@ -1,0 +1,94 @@
+% =============================================================================
+% Appendix C: Conformal vacuum and the Bunch-Davies state
+% paper/appendix_bunchdavies.tex
+% =============================================================================
+
+\section{Conformal vacuum and the Bunch-Davies state}
+\label{app:bunch-davies}
+
+We demonstrate that the conformal vacuum $|\Psi_{0}\rangle$ defined in
+\cref{sec:confvac} coincides with the Bunch-Davies (Euclidean) vacuum in
+de Sitter spacetime.
+
+\subsection*{Bunch-Davies Wightman function}
+
+The Bunch-Davies state is the unique de Sitter-invariant Hadamard state for a
+free scalar field~\cite{Allen1985}.  For a \emph{massless conformally coupled}
+scalar ($\xi = 1/6$) in four-dimensional de Sitter, the Wightman function takes
+the form~\cite{BunchDavies1978,Allen1985}
+%
+\begin{equation}
+  \Wight_{\rm BD}(x_{1},x_{2})
+  =
+  \frac{-H^{2}}{4\pi^{2}}
+  \cdot
+  \frac{\eta_{1}\eta_{2}}{(\eta_{1}-\eta_{2}-i\varepsilon)^{2}-|\mb{x}_{1}-\mb{x}_{2}|^{2}} \,,
+  \label{eq:app-W-BD}
+\end{equation}
+%
+where $\eta < 0$ is the conformal time and $H$ is the Hubble constant.
+(This is the Wightman function in the flat chart; $\eta_{1}\eta_{2}$ enter through
+the de Sitter-invariant distance when $m=0$, $\xi=1/6$.)
+
+\subsection*{Conformal vacuum Wightman function in de Sitter}
+
+From \cref{eq:Wight-FLRW}, the conformal-vacuum Wightman function in any FLRW spacetime is
+%
+\begin{equation}
+  \Wight_{\rm conf}(x_{1},x_{2})
+  =
+  \frac{-1}{4\pi^{2}\,\Scfac(\eta_{1})\,\Scfac(\eta_{2})\,\tilde{\sigma}_{\varepsilon}} \,,
+  \qquad
+  \tilde{\sigma}_{\varepsilon} = -(\eta_{1}-\eta_{2}-i\varepsilon)^{2}+|\mb{x}_{1}-\mb{x}_{2}|^{2} \,.
+\end{equation}
+%
+For de Sitter with $\Scfac(\eta) = -1/(H\eta)$:
+$\Scfac(\eta_{1})\Scfac(\eta_{2}) = 1/(H^{2}\eta_{1}\eta_{2})$.
+Substituting:
+%
+\begin{align}
+  \Wight_{\rm conf}(x_{1},x_{2})
+  &=
+  \frac{-1}{4\pi^{2}}
+  \cdot H^{2}\eta_{1}\eta_{2}
+  \cdot
+  \frac{1}{-(\eta_{1}-\eta_{2}-i\varepsilon)^{2}+|\mb{x}_{1}-\mb{x}_{2}|^{2}} \nonumber\\
+  &=
+  \frac{-H^{2}\eta_{1}\eta_{2}}{4\pi^{2}\lb[(\eta_{1}-\eta_{2}-i\varepsilon)^{2}-|\mb{x}_{1}-\mb{x}_{2}|^{2}\rb]} \,.
+  \label{eq:app-W-conf-dS}
+\end{align}
+
+Comparing \cref{eq:app-W-BD,eq:app-W-conf-dS}: they are \emph{identical}.  Hence
+%
+\begin{equation}
+  \Wight_{\rm conf}\big|_{\rm dS} = \Wight_{\rm BD} \,.
+\end{equation}
+
+\subsection*{Why they must agree}
+
+The equality follows from general principles~\cite{Allen1985}:
+\begin{enumerate}
+\item Both $|\Psi_{0}\rangle_{\rm conf}$ and $|\Psi_{0}\rangle_{\rm BD}$ are Hadamard states
+  (same short-distance singularity structure).
+\item Both are invariant under the Euclidean symmetry group ISO$(3)$ of the spatial slices.
+\item For a massless conformally coupled scalar, de Sitter isometries act as conformal
+  transformations of the conformally related Minkowski space; the conformal vacuum, defined
+  as the pullback of the Minkowski vacuum, is therefore also invariant under de Sitter
+  isometries.
+\item By the uniqueness theorem of Allen~\cite{Allen1985}, there is exactly one de Sitter-invariant
+  Hadamard state for the massless conformally coupled scalar.
+\end{enumerate}
+Points (1)--(3) establish that the conformal vacuum is de Sitter-invariant and Hadamard;
+point (4) then forces $|\Psi_{0}\rangle_{\rm conf} = |\Psi_{0}\rangle_{\rm BD}$.
+
+\subsection*{General power-law FLRW}
+
+For power-law FLRW with $p > 1$ but $p \neq \infty$ (de Sitter limit), the spacetime is
+\emph{not} maximally symmetric.  No analogue of the Bunch-Davies state exists: there is no
+preferred vacuum singled out by isometry invariance, since the only isometries are the
+spatial Euclidean group ISO$(3)$.  The conformal vacuum is the natural initial state
+because it is the unique Hadamard state that (i) respects ISO$(3)$ symmetry and
+(ii) reduces to the Minkowski vacuum in the flat-space limit $\Scfac \to \mathrm{const}$.
+It does \emph{not} coincide with any thermal or KMS state at a well-defined temperature,
+consistent with the logarithmic (rather than linear) growth of $\Nnum$ found in
+\cref{sec:powerlaw}.

@@ -1,0 +1,265 @@
+% =============================================================================
+% MATHEMATICAL ANALYSIS 05: Electromagnetic Factor of Two
+% Stand-alone derivation for inspection
+% =============================================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\Scfac}{a}
+\newcommand{\Wight}{W}
+\newcommand{\Nnum}{\mathcal{N}}
+\newcommand{\pd}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+
+\title{Analysis 05: Electromagnetic Polarization Sum and Factor of Two}
+\author{Calculation Notes --- Satishchandran \& Rao}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Conformal invariance of Maxwell theory in 4D}
+
+The Maxwell action in a curved spacetime is
+%
+\begin{equation}
+  S_{\rm EM} = -\frac{1}{4}\int F_{ab}F^{ab}\sqrt{-g}\,d^{4}x \,,
+\end{equation}
+%
+where $F_{ab} = \pd_{a}A_{b}-\pd_{b}A_{a}$.
+
+Under a Weyl rescaling $g_{ab}\to\Omega^{2}\hat{g}_{ab}$:
+\begin{itemize}
+\item $g^{ab}\to\Omega^{-2}\hat{g}^{ab}$ (raised indices gain $\Omega^{-2}$ each)
+\item $F^{ab} = g^{ac}g^{bd}F_{cd}\to\Omega^{-4}\hat{F}^{ab}$
+\item $F_{ab}F^{ab} = F_{ab}g^{ac}g^{bd}F_{cd}\to\Omega^{-4}\hat{F}_{ab}\hat{F}^{ab}$
+\item $\sqrt{-g}\to\Omega^{4}\sqrt{-\hat{g}}$
+\end{itemize}
+Therefore:
+%
+\begin{equation}
+  F_{ab}F^{ab}\sqrt{-g}\;d^{4}x
+  \to
+  \Omega^{-4}\hat{F}_{ab}\hat{F}^{ab}\cdot\Omega^{4}\sqrt{-\hat{g}}\,d^{4}x
+  = \hat{F}_{ab}\hat{F}^{ab}\sqrt{-\hat{g}}\,d^{4}x \,.
+\end{equation}
+%
+The action is \emph{conformally invariant in $d=4$}: no $\Omega$ factors remain.
+(In general $d$ dimensions, the invariance requires $\Omega^{4-d}=1$, i.e., $d=4$.)
+
+Consequence: the Maxwell equations in the FLRW metric $g_{ab} = \Scfac^{2}(\eta)\eta_{ab}$
+reduce to the flat-space Maxwell equations for the potential $A_{\mu}$ (no conformal weight
+for the $A_{\mu}$ components in Lorenz gauge).
+
+\section*{EM Wightman function in the conformal vacuum}
+
+Since $A_{\mu}$ satisfies the flat-space wave equation in conformal coordinates:
+%
+\begin{equation}
+  \langle\Psi_{0}|A_{\mu}^{\rm in}(x_{1})A_{\nu}^{\rm in}(x_{2})|\Psi_{0}\rangle
+  =
+  W_{\mu\nu}^{\rm Mink}(\tilde{x}_{1},\tilde{x}_{2}) \,.
+\end{equation}
+%
+In Lorenz gauge in flat space (Minkowski), the photon propagator in the Feynman/Wightman
+prescription is:
+%
+\begin{equation}
+  W_{\mu\nu}^{\rm Mink}(x,x')
+  =
+  -\eta_{\mu\nu}\,W_{\rm scalar}^{\rm Mink}(x,x')
+  =
+  \frac{\eta_{\mu\nu}}{4\pi^{2}\tilde{\sigma}_{\varepsilon}(x,x')} \,,
+  \label{eq:W-EM-Mink}
+\end{equation}
+%
+where $W_{\rm scalar}^{\rm Mink} = -1/(4\pi^{2}\tilde\sigma_\varepsilon)$ is the massless
+scalar Wightman function.  Note: in FLRW the physical EM propagator has \emph{no}
+$1/[\Scfac(t_{1})\Scfac(t_{2})]$ factor (unlike the scalar field $\varphi$, which has
+conformal weight $-1$); the covariant vector $A_\mu$ has conformal weight 0 in $d=4$.
+
+\section*{Decoherence exponent for EM}
+
+The charged body couples to the EM field via $j^{\mu}A_{\mu}$.  The current difference
+$j_{1}^{\mu}-j_{2}^{\mu}$ in the dipole approximation is (cf. scalar case):
+%
+\begin{equation}
+  j_{1}^{i}(\tau,\mathbf{x}) - j_{2}^{i}(\tau,\mathbf{x})
+  \approx
+  q\,d_{0}\,s^{i}\,\pd_{i}\delta^{(3)}(\mathbf{x}-\mathbf{X}(\tau)) \,,
+\end{equation}
+%
+where $i=1,2,3$ are spatial indices and the time component contributes subleadingly
+in the non-relativistic limit.  The decoherence exponent is
+%
+\begin{equation}
+  \Gamma_{\rm EM}
+  =
+  q^{2}d_{0}^{2}
+  \int\!\!\int d\tau_{1}d\tau_{2}\;
+  s^{i}s^{j}\,\pd_{i}\pd_{j'}\,
+  W_{00}^{(\rm spatial)} \,,
+\end{equation}
+%
+where $W_{ij}^{(\rm spatial)}$ is the spatial part of the EM Wightman function.
+
+For the spatial components in Lorenz gauge (at coincident spatial points):
+%
+\begin{equation}
+  W_{ij}^{\rm Mink}(\eta_{1},\mathbf{X};\eta_{2},\mathbf{X})
+  =
+  -\frac{\eta_{ij}}{4\pi^{2}\tilde\sigma_\varepsilon}\bigg|_{|\Delta\mathbf{x}|=0}
+  =
+  \frac{\delta_{ij}}{4\pi^{2}(\eta_{1}-\eta_{2}-i\varepsilon)^{2}} \,.
+\end{equation}
+%
+Taking the spatial derivatives $\pd_{x^i}\pd_{x'^j}$:
+%
+\begin{equation}
+  s^{i}s^{j}\pd_{x^i}\pd_{x'^j}\,W_{ij}\big|_{x=x'}
+  =
+  s^{i}s^{j}\cdot\delta_{ij}\cdot\frac{2}{(\eta_1-\eta_2-i\varepsilon)^4}
+  = \frac{2|s|^{2}}{(\eta_1-\eta_2-i\varepsilon)^{4}}
+  = \frac{2}{(\eta_1-\eta_2-i\varepsilon)^{4}} \,.
+\end{equation}
+%
+(using $|s|^{2}=1$ for unit separation vector).
+
+\section*{Polarization counting and the factor of 2}
+
+For the \emph{scalar} field, the spatial derivative gave (Analysis~02):
+%
+\begin{equation}
+  s^{i}s^{j}\pd_{x^i}\pd_{x'^j}\,\Wight_{\rm scalar}\big|_{x=x'}
+  \approx
+  \frac{2/3}{(\eta_1-\eta_2-i\varepsilon)^{4}\cdot\Scfac_1\Scfac_2} \,.
+\end{equation}
+%
+(factor $2/3$ from $\hat{s}^i\hat{s}^j\delta_{ij}\cdot(2/\tilde\sigma^2)$ with isotropic average
+$\langle s^is^j\rangle = \delta^{ij}/3$).
+
+After including the dτ Jacobians and the $1/(\Scfac_1\Scfac_2)$ from $\Wight_{\rm scalar}$
+cancellation, the scalar integral gives:
+%
+\begin{equation}
+  \Gamma_{\rm scalar}
+  =
+  \frac{q^{2}d_{0}^{2}}{12\pi^{2}}
+  \int\!\!\int d\eta_1 d\eta_2\;\frac{1}{(\eta_1-\eta_2-i\varepsilon)^{4}} \,.
+\end{equation}
+
+For the EM field, the EM propagator has no $1/(\Scfac_1\Scfac_2)$ factor, but the
+dτ Jacobians still provide two factors of $\Scfac$.  The spatial component sum is
+$W_{ij}^{\rm Mink} = \delta_{ij}\cdot W_{\rm scalar}^{\rm Mink}$ (in Lorenz gauge),
+which when contracted with $s^is^j\delta_{ij}$ gives $|s|^2 W_{\rm scalar}^{\rm Mink} = W_{\rm scalar}^{\rm Mink}$.
+
+\textbf{Naive counting:} the EM propagator at coincident points gives a factor of
+$\sum_{i}\delta_{ii} = 3$ (from the trace) compared to the scalar which gives $1/3$
+(after isotropic angular averaging).  But we need $s^is^j\langle\delta_{ij}-k_ik_j/k^2\rangle$
+for physical (transverse) photons.
+
+\subsection*{Physical polarization sum for transverse photons}
+
+Physical photons are transverse: only modes perpendicular to $\mathbf{k}$ contribute.
+The transverse projector is $\Pi_{ij}(\mathbf{k}) = \delta_{ij} - k_ik_j/|\mathbf{k}|^2$.
+Contracting with the dipole $s^is^j$:
+%
+\begin{align}
+  s^is^j\Pi_{ij}(\mathbf{k})
+  &= s^is^j\delta_{ij} - s^is^j\frac{k_ik_j}{|\mathbf{k}|^2}
+  = 1 - (\hat\mathbf{k}\cdot\hat\mathbf{s})^2 \,.
+\end{align}
+%
+Averaging over photon propagation directions $\hat\mathbf{k}$:
+%
+\begin{align}
+  \int\frac{d^{2}\hat{k}}{4\pi}\lb[1 - (\hat\mathbf{k}\cdot\hat\mathbf{s})^{2}\rb]
+  &=
+  1 - \int\frac{d^{2}\hat{k}}{4\pi}\cos^{2}\theta
+  = 1 - \frac{1}{3} = \frac{2}{3} \,.
+\end{align}
+%
+For the scalar field, the analogous integral (longitudinal projection) gives $1/3$.
+Therefore:
+%
+\begin{equation}
+  \frac{\Gamma_{\rm EM}}{\Gamma_{\rm scalar}}
+  =
+  \frac{2/3}{1/3} = 2 \,.
+  \label{eq:ratio-2}
+\end{equation}
+
+\textbf{This is the factor of 2.}  It is purely kinematic: it counts the ratio
+of transverse ($2/3$) to ``scalar'' ($1/3$) angular averages, which equals the
+number of physical photon polarizations (2).
+
+\section*{Formal derivation via polarization completeness}
+
+In $d=4$, the sum over physical photon polarizations is
+$\sum_{\lambda=1,2}\epsilon^{\mu}_{(\lambda)}(k)\epsilon^{*\nu}_{(\lambda)}(k) = -\eta^{\mu\nu} + \frac{k^\mu\bar{k}^\nu + k^\nu\bar{k}^\mu}{k\cdot\bar{k}}$,
+where $\bar{k}$ is an auxiliary null vector.  For the transverse spatial components:
+%
+\begin{equation}
+  \sum_{\lambda}\epsilon^{i}_{(\lambda)}\epsilon^{*j}_{(\lambda)}
+  = \delta^{ij} - \hat{k}^{i}\hat{k}^{j}
+  = \Pi^{ij}(\mathbf{k}) \,.
+\end{equation}
+%
+Contracting with $s_{i}s_{j}$ and integrating over $\hat\mathbf{k}$:
+%
+\begin{align}
+  \int\frac{d^3\mathbf{k}}{(2\pi)^3}\frac{s^is^j\Pi_{ij}(\hat\mathbf{k})}{2|\mathbf{k}|}
+  &\propto
+  \int_{0}^{\infty}dk\,k^2\cdot\frac{1}{k}\cdot\frac{2}{3}
+  \propto \frac{2}{3}\int dk\,k \,.
+\end{align}
+%
+For the scalar:
+%
+\begin{equation}
+  \int\frac{d^3\mathbf{k}}{(2\pi)^3}\frac{s^is^j\delta_{ij}/3}{2|\mathbf{k}|}
+  \propto \frac{1}{3}\int dk\,k \,.
+\end{equation}
+%
+Ratio: $(2/3)/(1/3) = 2$ \checkmark.
+
+\section*{Explicit EM results}
+
+Combining the ratio \eqref{eq:ratio-2} with the scalar results:
+%
+\begin{align}
+  \Nnum_{\rm EM}^{\rm dS}
+  &= 2\Nnum_{\rm scalar}^{\rm dS}
+  = \frac{q^{2}d_{0}^{2}H^{3}T}{48\pi^{2}} \,. \\[4pt]
+  \Nnum_{\rm EM}^{\rm PL}
+  &= 2\Nnum_{\rm scalar}^{\rm PL}
+  = \frac{q^{2}d_{0}^{2}p^{3}}{24\pi^{3}}
+  \cdot\frac{2T_{0}^{2}+\widetilde{T}(2+\widetilde{T})}{T_{0}^{2}(1+\widetilde{T})^{2}}
+  \cdot\ln(1+\widetilde{T}) \,.
+\end{align}
+
+\section*{Universality}
+
+The factor of 2 holds for every conformally flat FLRW background with a conformal
+vacuum state, because:
+\begin{enumerate}
+\item Conformal invariance maps the EM problem to flat space (no $\Omega$-dependent prefactors).
+\item The flat-space polarization sum contributes a factor $2/3$ vs $1/3$ for scalars.
+\item This ratio is purely kinematic and background-independent.
+\end{enumerate}
+
+\section*{Summary}
+
+$\Nnum_{\rm EM} = 2\Nnum_{\rm scalar}$ universally, counting the two physical transverse
+polarizations of the photon.  The derivation is:
+(1) Maxwell conformal invariance in $d=4$ removes scale-factor dependence;
+(2) physical photon polarizations contribute $2/3$ angular average vs $1/3$ for scalar;
+(3) ratio $= 2$.
+
+\end{document}

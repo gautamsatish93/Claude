@@ -1,0 +1,204 @@
+% =============================================================================
+% MATHEMATICAL ANALYSIS 01: Conformal Vacuum and Wightman Function
+% Stand-alone derivation for inspection
+% =============================================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\Scfac}{a}
+\newcommand{\Wight}{W}
+\newcommand{\pd}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+
+\title{Analysis 01: Conformal Vacuum and Wightman Function in FLRW}
+\author{Calculation Notes --- Satishchandran \& Rao}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Setup}
+
+We work with the conformally flat FLRW metric
+\be
+  ds^2 = \Scfac(t)^2 \, \eta_{\mu\nu} \, dx^\mu dx^\nu \,,
+\ee
+where $t$ is conformal time, $\eta_{\mu\nu} = \mathrm{diag}(-1,+1,+1,+1)$,
+and $\Scfac(t) > 0$.
+
+A conformally coupled massless scalar $\varphi$ satisfies
+\be
+  \lb(\Box_g - \tfrac{1}{6} R\rb) \varphi = 0 \,.
+\ee
+
+\section{Conformal Mapping}
+
+\textbf{Claim:} Under the conformal rescaling $g_{ab} = \Scfac^2(t) \eta_{ab}$,
+the rescaled field $\chi \equiv \Scfac(t) \, \varphi$ satisfies the flat-space
+massless wave equation $\Box_\eta \chi = 0$.
+
+\textbf{Derivation:}
+
+The conformal coupling term $\frac{1}{6}R$ for a conformally flat metric
+$g_{ab} = \Omega^2 \eta_{ab}$ (with $\Omega = \Scfac(t)$) produces:
+\be
+  R = -\frac{6}{\Omega^2} \lb(\Box_\eta \Omega + \eta^{\mu\nu} \frac{\pd_\mu \Omega \, \pd_\nu \Omega}{\Omega}\rb) \cdot [\text{standard result}]
+\ee
+More precisely, in $n=4$ dimensions:
+\be
+  R = \frac{6}{\Scfac^3} \lb(\ddot{\Scfac}\rb) \quad \text{(for $\Scfac = \Scfac(t)$ only)}
+\ee
+where dots denote $d/dt$.
+
+The equation $(\Box_g - \frac{1}{6}R)\varphi = 0$ with $\varphi = \chi/\Scfac$ becomes,
+after standard conformal transformation algebra (see e.g.\ Wald 1984, Appendix D):
+\be
+  \Box_\eta \chi = 0 \,.
+\ee
+This is exact --- no approximation.
+
+\section{Conformal Vacuum}
+
+\textbf{Definition:} The conformal vacuum $|\Psi_0\rangle$ is defined by
+requiring that the mode expansion of $\chi$ in flat-space positive-frequency
+modes $e^{-i\omega t + i\mathbf{k}\cdot\mathbf{x}}$ (with $\omega = |\mathbf{k}| > 0$)
+annihilates $|\Psi_0\rangle$:
+\be
+  \hat{a}_{\mathbf{k}} |\Psi_0\rangle = 0 \quad \forall \, \mathbf{k}\,,
+\ee
+where $\chi = \int \frac{d^3k}{(2\pi)^3 2\omega} \lb(\hat{a}_\mathbf{k} e^{-i\omega t + i\mathbf{k}\cdot\mathbf{x}} + \text{h.c.}\rb)$.
+
+\textbf{Key property:} This is the unique Hadamard state invariant under
+spatial translations and rotations that reduces to the Minkowski vacuum
+when $\Scfac \to \text{const}$.
+
+\section{Wightman Function Derivation}
+
+\textbf{Step 1:} The Minkowski Wightman function for the rescaled field $\chi$ is
+\be
+  \langle \Psi_0 | \chi(x_1) \chi(x_2) | \Psi_0 \rangle
+  = W_{\rm Mink}(x_1, x_2)
+  = \frac{-1}{4\pi^2 \, \tilde{\sigma}_\varepsilon(x_1, x_2)} \,,
+\ee
+where
+\be
+  \tilde{\sigma}_\varepsilon(x_1, x_2) = -(t_1 - t_2 - i\varepsilon)^2 + |\mathbf{x}_1 - \mathbf{x}_2|^2 \,.
+\ee
+
+\textbf{Verification of sign:} With signature $(-,+,+,+)$ and the standard
+$i\varepsilon$ prescription for the Wightman function (time-ordered boundary
+condition from $t_1 \to t_1 - i\varepsilon$):
+\be
+  W_{\rm Mink} = \int \frac{d^3k}{(2\pi)^3 2\omega} e^{-i\omega(t_1-t_2) + i\mathbf{k}\cdot(\mathbf{x}_1-\mathbf{x}_2)}
+  = \frac{-1}{4\pi^2 [-(t_1-t_2-i\varepsilon)^2 + |\Delta\mathbf{x}|^2]} \,.
+\ee
+The minus sign in the numerator arises because $\tilde{\sigma}_\varepsilon$ is
+negative for timelike separation (since we use mostly-plus signature and the
+denominator is $\tilde{\sigma}_\varepsilon$, not $-\tilde{\sigma}_\varepsilon$).
+
+\textbf{Step 2:} Since $\varphi = \chi / \Scfac(t)$, the Wightman function
+for the physical field $\varphi$ is:
+\be
+  \Wight(x_1, x_2) \equiv \langle \Psi_0 | \varphi(x_1) \varphi(x_2) | \Psi_0 \rangle
+  = \frac{1}{\Scfac(t_1) \Scfac(t_2)} W_{\rm Mink}(x_1, x_2) \,.
+\ee
+
+\textbf{Step 3:} Combining Steps 1 and 2:
+\be
+  \boxed{
+  \Wight(x_1, x_2)
+  = \frac{-1}{4\pi^2 \, \Scfac(t_1) \, \Scfac(t_2) \, \tilde{\sigma}_\varepsilon(x_1, x_2)}
+  }
+  \label{eq:Wight-FLRW}
+\ee
+
+\section{Specialization: Coincident Spatial Points}
+
+At $\mathbf{x}_1 = \mathbf{x}_2 = \mathbf{X}$:
+\be
+  \tilde{\sigma}_\varepsilon(t_1, \mathbf{X}; t_2, \mathbf{X})
+  = -(t_1 - t_2 - i\varepsilon)^2 \,,
+\ee
+so
+\be
+  \Wight(t_1, \mathbf{X}; t_2, \mathbf{X})
+  = \frac{-1}{4\pi^2 \Scfac(t_1) \Scfac(t_2) [-(t_1-t_2-i\varepsilon)^2]}
+  = \frac{1}{4\pi^2 \Scfac(t_1) \Scfac(t_2) (t_1-t_2-i\varepsilon)^2} \,.
+\ee
+
+\section{De Sitter Specialization}
+
+For de Sitter: $\Scfac(\eta) = -1/(H\eta)$, $\eta \in (-\infty, 0)$.
+\be
+  \Scfac(\eta_1)\Scfac(\eta_2) = \frac{1}{H^2 \eta_1 \eta_2}
+\ee
+so
+\be
+  \Wight(\eta_1, \mathbf{X}; \eta_2, \mathbf{X})
+  = \frac{H^2 \eta_1 \eta_2}{4\pi^2 (-({\eta_1 - \eta_2 - i\varepsilon})^2)}
+  = \frac{-H^2 \eta_1 \eta_2}{4\pi^2 (\eta_1-\eta_2-i\varepsilon)^2} \,.
+\ee
+
+\textbf{Note:} The paper's Eq.~(eq:Wight-dS-coincident) writes this as
+$-H^2/[4\pi^2(\eta_1-\eta_2-i\varepsilon)^2]$. This agrees only if the
+$\eta_1\eta_2$ factors are absorbed differently. Let me re-check:
+
+Actually, the full expression at general spatial separation is
+$\Wight = H^2/[4\pi^2(-({\eta_1-\eta_2-i\varepsilon})^2 + |\mathbf{x}_1-\mathbf{x}_2|^2)]$
+from Eq.~(eq:Wight-dS).  At coincident spatial points:
+\be
+  \Wight = \frac{H^2}{4\pi^2 \cdot [-({\eta_1-\eta_2-i\varepsilon})^2]}
+  = \frac{-H^2}{4\pi^2 (\eta_1-\eta_2-i\varepsilon)^2} \,.
+\ee
+
+This means the $1/[\Scfac(\eta_1)\Scfac(\eta_2)]$ factor already gives the $H^2\eta_1\eta_2$ prefactor which combines with $1/(-(\eta_1-\eta_2)^2)$ to give a clean $H^2/(-(...)^2)$ only at general points.
+
+\textbf{Consistency check:} From the general formula (\ref{eq:Wight-FLRW}):
+\begin{align}
+  \Wight &= \frac{-1}{4\pi^2 \cdot (-1/(H\eta_1))(-1/(H\eta_2)) \cdot [-({\eta_1-\eta_2-i\varepsilon})^2 + |\Delta\mathbf{x}|^2]} \\
+  &= \frac{-H^2 \eta_1 \eta_2}{4\pi^2 [-({\eta_1-\eta_2-i\varepsilon})^2 + |\Delta\mathbf{x}|^2]}
+\end{align}
+
+The paper's Eq.~(eq:Wight-dS) states:
+$\Wight = H^2/(4\pi^2) \cdot 1/[-({\eta_1-\eta_2})^2 + |\Delta\mathbf{x}|^2]$.
+
+These are \textbf{NOT} identical unless $\eta_1\eta_2 = -1$, which is not generally true.
+
+\medskip
+\textbf{$\Rightarrow$ POTENTIAL ISSUE:} The factor $\eta_1\eta_2$ in the Wightman function
+may be missing from desitter.tex Eq.~(eq:Wight-dS). This should be checked.
+The correct form of the Wightman function for the conformally coupled scalar
+in de Sitter at general points is:
+\be
+  \Wight(\eta_1, \mathbf{x}_1; \eta_2, \mathbf{x}_2)
+  = \frac{-H^2\eta_1\eta_2}{4\pi^2[-(\eta_1-\eta_2-i\varepsilon)^2 + |\mathbf{x}_1-\mathbf{x}_2|^2]}
+\ee
+
+However, for the decoherence calculation, we only need $\Wight$ at coincident
+spatial points, where spatial derivatives act before setting $\mathbf{x}_1 = \mathbf{x}_2$.
+The $\eta_1\eta_2$ factor is a function of time only and factors out of the spatial
+derivatives. So the decoherence integral picks up this factor, but it cancels against
+the $d\tau = \Scfac d\eta$ Jacobian in the integral.
+
+Let us verify this explicitly. The decoherence integral involves:
+\be
+  \Gamma = q^2 \int d\tau_1 d\tau_2 \, d_0^2 \, s^a s^b \pd_a \pd_{b'} \Wight
+\ee
+Using $d\tau = \Scfac(\eta) d\eta = \frac{-d\eta}{H\eta}$:
+\be
+  \Gamma = q^2 d_0^2 \int \frac{d\eta_1}{(-H\eta_1)} \frac{d\eta_2}{(-H\eta_2)}
+  \cdot s^a s^b \pd_a \pd_{b'} \lb[\frac{-H^2\eta_1\eta_2}{4\pi^2(\ldots)}\rb]
+\ee
+The $\eta_1\eta_2$ from $\Wight$ cancels the $\frac{1}{\eta_1\eta_2}$ from the Jacobians.
+This leaves exactly $H^2/(H^2) = 1$ from the conformal factors, confirming the cancellation
+noted in the power-law section.
+
+\textbf{Conclusion:} The final result for $\Gamma$ is independent of the conformal
+factors --- confirming the conformal cancellation used in the paper.
+
+\end{document}

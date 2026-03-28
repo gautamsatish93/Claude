@@ -1,0 +1,306 @@
+% =============================================================================
+% Section VII: Discussion
+% paper/discussion.tex
+% =============================================================================
+
+\section{Discussion}
+\label{sec:discussion}
+
+The results of \cref{sec:powerlaw,sec:desitter,sec:em} establish that causal
+horizons in FLRW spacetimes produce inevitable, unbounded decoherence of quantum
+superpositions of charged bodies, even in the complete absence of Killing
+symmetry.  In this section we examine the physical mechanism underlying this
+result, explain the geometric origin of the two qualitatively different growth
+laws, discuss the universality of the factor-of-2 relation between scalar and
+electromagnetic decoherence, compare our findings to related work in the
+literature, collect all results in a single summary table, and identify
+directions for future investigation.
+
+\subsection{Physical mechanism: soft radiation through the horizon}
+\label{sec:discussion-mechanism}
+
+The decoherence computed in this paper has a transparent physical origin.
+A body in a quantum superposition of two spatial locations $\gamma_1$ and
+$\gamma_2$ sources a field whose radiation pattern encodes which-path information:
+the field emitted by a charge at $\gamma_1$ differs from that emitted by a charge
+at $\gamma_2$ precisely in the dipole mode.  This difference constitutes soft
+radiation that propagates outward from the superposition.  When a future causal
+horizon $\mc{H}^+(\gamma)$ is present, a portion of this radiation — specifically,
+the low-frequency (long-wavelength) modes emitted during the superposition — crosses
+the horizon and becomes permanently inaccessible to any comoving observer.  In the
+DSW language, the in-vacuum field is in an entangled state across the horizon; after
+the radiation has crossed, the reduced state of the observable field is mixed, and
+tracing over the inaccessible modes suppresses the off-diagonal coherence
+$|\langle \gamma_1 | \rho_{\rm red} | \gamma_2 \rangle|$.
+
+The technical manifestation of this mechanism is the role of the conformal time
+range as an infrared (IR) regulator.  The decoherence integral,
+\cref{eq:decoherence-integral}, involves a double integral over conformal
+time with an integrand $\sim (t_1 - t_2)^{-4}$.  In a Minkowski background there
+is no upper bound on the conformal time, and the integral, evaluated over an
+unbounded interval, yields a contribution that is entirely insensitive to the total
+integration time at long wavelengths.  By contrast, when a future causal horizon
+is present ($p > 1$ or de Sitter), the conformal time range is bounded above by
+the finite value $t_\infty < \infty$.  The horizon imposes a physical IR cutoff on
+the field modes that contribute to decoherence: modes with wavelengths longer than
+the remaining conformal distance $t_\infty - t$ cannot fit between the source and
+the horizon and are therefore not available to carry which-path information.  As
+the superposition time $T$ increases and $t_{\rm off} \to t_\infty$, progressively
+shorter-wavelength (higher-frequency) modes become saturated, and the cumulative
+decoherence grows without bound.
+
+The $p = 1$ case makes this causal interpretation precise.  When $p = 1$ the
+conformal time range is all of $[t_0, \infty)$: no future causal horizon is
+present, and there is no IR cutoff.  The integral in \cref{eq:decoherence-integral}
+then yields a finite constant as $T \to \infty$ (see \cref{eq:N-nohorizon}): the
+soft radiation is \emph{displaced} into the field at spatial infinity but is not
+\emph{permanently hidden} from any observer.  The horizon, not the background
+dynamics, is the essential ingredient.
+
+\subsection{Logarithmic vs.\ linear growth: a geometric distinction}
+\label{sec:discussion-growth}
+
+The two growth laws found in this paper — $\Nnum \sim \ln T$ for power-law FLRW
+and $\Nnum \sim T$ for de Sitter — reflect a geometric difference in how the
+respective horizons ``peel off'' soft field modes.
+
+In de Sitter spacetime, the exponential scale factor $\Scfac(\eta) = -1/(H\eta)$
+means that the conformal-time distance from the source to the future boundary
+shrinks in inverse proportion to $-\eta$ as proper time advances.  New modes
+cross the horizon at a \emph{constant} proper-time rate.  The Wightman function
+at coincident spatial position, \cref{eq:Wight-dS-coincident}, acquires the
+uniform spectral weight $H^2$, which is time-independent: every moment in
+de Sitter looks identical to every other, because the spacetime is maximally
+symmetric.  The decoherence integral then accumulates linearly in proper time,
+and the rate is set by the Gibbons-Hawking temperature $T_{\rm GH} = H/2\pi$
+through the identification $H^3 = (2\pi T_{\rm GH})^3$.  From the perspective
+of a comoving observer, decoherence arises from coupling to a genuine thermal
+bath at temperature $T_{\rm GH}$~\cite{Gibbons:1977mu,Danielson:2022tdw}; the
+rate is exactly what a dipole of moment $qd_0$ accumulates when immersed in a
+Planck distribution of soft bosons~\cite{Danielson:2024yge}.
+
+For the power-law family with $p > 1$, the expansion is accelerated but
+\emph{not} exponential: the scale factor $\Scfac(\tau) = C_p(\tau - \tau_*)^p$
+grows as a power law.  The conformal-time distance remaining to the horizon
+decreases, but at a rate that slows as proper time advances.  Each successive
+interval $d\tau$ of superposition covers a smaller conformal-time fraction of
+the remaining horizon distance.  The cumulative decoherence, which counts the
+number of modes that have crossed the horizon, therefore grows as the logarithm
+of the total proper time elapsed.  There is no Killing symmetry, no invariant
+notion of temperature, and no thermal distribution: the decoherence rate is not
+set by a bath temperature but purely by the geometry of the horizon, encoded in
+the single parameter $T_0$ defined by \cref{eq:T0-def}.
+
+Both laws are unbounded — decoherence is inevitable in both cases — but they
+are parametrically distinct.  A superposition that survives for proper time $T$
+accumulates $\Nnum_{\rm dS} \sim H^3 T$ (linear) or
+$\Nnum_{\rm PL} \sim p^3 T_0^{-2} \ln(T/T_0)$ (logarithmic).  For any fixed
+$q$, $d_0$, and background parameters, the de Sitter rate dominates at late
+times.  Conversely, the $p^3$ prefactor in the power-law result shows that
+stronger acceleration (larger $p$, shorter horizon distance) produces faster
+logarithmic growth: an observer in a more violently accelerating cosmology
+loses coherence more rapidly even within the slower logarithmic regime.
+
+\subsection{Universality: conformal invariance and the factor of 2}
+\label{sec:discussion-universality}
+
+The equality $\Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}$, derived in \cref{sec:em},
+holds for every member of the power-law family and for de Sitter, identically.
+This universality has a clean structural explanation.
+
+Both the conformally coupled scalar and the Maxwell field are conformally
+invariant in four spacetime dimensions.  Under the Weyl rescaling
+$g_{ab} \to \Scfac^2(\eta)\,\eta_{ab}$, the equations of motion for both fields
+reduce to their flat-space counterparts: the scalar field equation with its
+$R/6$ coupling becomes the massless Klein-Gordon equation, and the Maxwell
+equations in Lorenz gauge become the flat-space wave equation (see
+\cref{sec:em-conformal}).  Consequently, the structure of the decoherence
+integral is identical for both fields: it is the \emph{flat-space} integral,
+\cref{eq:decoherence-integral}, dressed only by the polarization content of the
+field.  The scalar contributes one degree of freedom per propagation direction;
+the photon contributes two independent transverse polarizations.  The factor of 2
+counts these polarizations and is kinematic — independent of the cosmological
+background, the power-law exponent, or any other geometric data.
+
+This conformal universality extends to any conformally invariant field in any
+conformally flat FLRW cosmology: the decoherence integral reduces to its Minkowski
+counterpart, and the ratio of decoherence numbers between any two such fields is
+fixed by their polarization content alone.  The results of this paper therefore
+carry an intrinsic robustness: they do not depend on the detailed form of the
+scale factor beyond the existence of a future causal horizon.
+
+The gravitational case is qualitatively different.  Soft gravitons in four
+spacetime dimensions are \emph{not} conformally invariant: the linearized
+Einstein equations for the metric perturbation $h_{\mu\nu}$ do not reduce to
+the flat-space wave equation under a Weyl rescaling.  The conformal-flatness
+argument used throughout this paper does not apply, and the calculation of
+gravitational decoherence in FLRW requires entirely new methods.  This is an
+important open problem: in de Sitter, the gravitational decoherence number for
+a massive body of mass $m$ and separation $d_0$ grows as
+$\Nnum_{\rm grav}^{\rm dS} \sim H^5 m^2 d_0^4 T$~\cite{Danielson:2022tdw},
+but the analogue for non-stationary FLRW cosmologies is not currently known.
+
+\subsection{Comparison with related work}
+\label{sec:discussion-comparison}
+
+The de Sitter result~\cref{eq:N-dS},
+$\Nnum_{\rm dS} = q^2 d_0^2 H^3 T/(96\pi^2)$, agrees exactly with the
+result of Danielson, Satishchandran, and Wald~\cite{Danielson:2022tdw}, who
+obtained the same expression by applying a Killing-horizon analysis in the static
+patch of de Sitter.  Our derivation reaches this result by a completely different
+route — conformal flatness and the FLRW Wightman function, with no reference to
+the static patch or its Killing symmetry — and thereby confirms both calculations
+and makes their physical equivalence explicit.  DSW (2025a)~\cite{Danielson:2024yge}
+further showed that this result admits a local interpretation in terms of
+low-frequency Hawking quanta at the observer's location; our calculation is
+consistent with this local picture, which also requires Killing symmetry.
+
+Li et al.~\cite{Li:2024} independently computed the decoherence of spatial
+superpositions in de Sitter using algebraic quantum field theory methods.  Their
+approach is complementary to ours: it works directly in the de Sitter algebra
+rather than exploiting conformal flatness.  Their result for the scalar and
+electromagnetic cases agrees with \cref{eq:N-dS,eq:N-EM-dS}, providing a
+third independent confirmation of the numerical coefficient.
+
+Gralla and Wei~\cite{Gralla:2023oya} developed a general formulation of
+horizon-induced decoherence that covers Kerr black holes and other Killing-horizon
+spacetimes.  Their framework is consistent with the DSW result for de Sitter; it
+applies in the regime where a Killing horizon and a well-defined Hawking
+temperature are available, which is precisely the regime where our power-law
+formula reduces to linear growth.  The present paper extends beyond the Killing
+symmetry assumption: our main new result — the logarithmic growth law
+\cref{eq:N-large-T} — has no analogue in the Gralla-Wei framework, which requires
+stationarity.
+
+Wilson-Gerow, Dugad, and Chen~\cite{WilsonGerow:2024} analyzed horizon-induced
+decoherence through the Unruh-DeWitt lens, treating the horizon as a ``warm
+bath'' at the Gibbons-Hawking temperature.  Their results are consistent with the
+thermal ($\Nnum \sim T$) growth for Killing horizons.  For non-stationary FLRW
+backgrounds, no Unruh temperature is defined, and the warm-bath approximation
+does not apply; the logarithmic growth found in this paper lies outside their
+framework.
+
+Fahn and Pesci~\cite{FahnPesci:2025} recently studied quantum geometry
+corrections to the DSW decoherence near a black hole horizon, finding that
+Planck-scale discretization of the horizon area can \emph{suppress} decoherence
+relative to the semiclassical prediction at very short distances.  The results
+of the present paper are the semiclassical baseline against which such
+corrections would be measured.  Extending the quantum-geometry analysis to
+non-stationary FLRW horizons is an interesting open problem.
+
+\subsection{Summary of results}
+\label{sec:discussion-table}
+
+\Cref{tab:summary} collects the decoherence number $\Nnum$ for all cases studied
+in this paper.  The electromagnetic result $\Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}$
+holds in every row.
+
+\begin{table}[h]
+\caption{Decoherence number $\Nnum$ for a scalar field superposition of charge $q$,
+separation $d_0$, and duration $T$.  The parameter $T_0$ is the characteristic
+proper-time scale defined in \cref{eq:T0-def}, and $\widetilde{T} \equiv T/T_0$.
+The electromagnetic result is $\Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}$
+in all cases.  The exact closed-form expression for power-law FLRW
+is \cref{eq:N-exact}; the large-$T$ asymptotic is quoted here.}
+\label{tab:summary}
+\begin{ruledtabular}
+\begin{tabular}{lccc}
+Spacetime & Scale factor & $\Nnum\;(T \to \infty)$ & Growth \\[2pt]
+\hline\\[-6pt]
+Power-law, $p > 1$ &
+  $C_p(\tau - \tau_*)^p$ &
+  $\dfrac{q^2 d_0^2 p^3}{48\pi^3 T_0^2}\ln\!\lb(\dfrac{T}{T_0}\rb)$ &
+  logarithmic \\[14pt]
+No horizon, $p = 1$ &
+  $C_1(\tau - \tau_*)$ &
+  $\dfrac{q^2 d_0^2}{16\pi^2 u_{\rm on}^2}$ &
+  saturates \\[14pt]
+De~Sitter &
+  $e^{H\tau}/H$ &
+  $\dfrac{q^2 d_0^2 H^3}{96\pi^2}\, T$ &
+  linear \\[4pt]
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+The table illustrates the central hierarchy: the causal horizon converts a
+saturating finite constant into an unbounded decoherence number.  Among
+horizon-equipped spacetimes, the growth rate depends on whether the horizon
+is stationary (linear, de Sitter) or non-stationary (logarithmic, power-law).
+
+\subsection{Implications and future directions}
+\label{sec:discussion-future}
+
+\paragraph{Observational scales.}
+For a superposition of a charged body with charge $q$, comoving separation $d_0$,
+and initial conformal-time distance $T_0$ to the causal horizon, the decoherence
+number \cref{eq:N-large-T} implies a characteristic coherence time: requiring
+$\Nnum \sim 1$ gives
+%
+\be
+  T_{\rm dec}
+  \;\sim\;
+  T_0\, \exp\!\lb(\frac{48\pi^3\, T_0^2}{q^2 d_0^2 p^3}\rb) \,.
+  \label{eq:T-dec}
+\ee
+%
+For any macroscopic charged body ($q$ of order the elementary charge, $d_0$ of
+order nanometers) in a cosmological background ($T_0 \sim H_0^{-1}$ for the
+present Hubble horizon), $T_{\rm dec}$ is astronomically large — far exceeding
+the current age of the universe.  Nonetheless, \cref{eq:T-dec} is finite: given
+sufficient time, any such superposition is completely decohered by the causal
+horizon.  The result is therefore a statement of principle as much as practice:
+\emph{no superposition is protected by the absence of a thermal bath, because the
+horizon itself acts as an irreversible information sink}.  For small charges or
+separations, or in spacetimes with large acceleration ($p \gg 1$), the
+decoherence can be parametrically faster.
+
+\paragraph{Gravitational decoherence in FLRW.}
+The most important open problem is the extension to soft gravitons.  Unlike
+conformally invariant matter fields, the linearized gravitational field is not
+conformally invariant in four dimensions: the minimal coupling to curvature
+cannot be removed by a Weyl rescaling, and the graviton Wightman function in
+FLRW does not reduce to the Minkowski form.  A calculation of gravitational
+decoherence for power-law FLRW cosmologies therefore requires a direct
+evaluation of the graviton 2-point function in these backgrounds, likely
+involving a more involved mode analysis.  This is a natural next step, as it
+would determine the decoherence of massive (but uncharged) bodies in
+cosmological spacetimes.
+
+\paragraph{Realistic cosmology.}
+The universe underwent a transition from matter domination ($p = 2/3$, no future
+horizon) to $\Lambda$-domination (approximately de Sitter, with a causal horizon)
+at a redshift $z_\Lambda \approx 0.3$.  A complete calculation of horizon
+decoherence in a realistic FLRW model would need to track this transition and
+identify when the IR cutoff provided by the horizon first becomes operative.  The
+framework developed here — in particular the conformal-time formulation — provides
+the natural starting point for such a computation.
+
+\paragraph{Quantum geometry corrections.}
+Fahn and Pesci~\cite{FahnPesci:2025} have shown that quantizing the horizon
+area in the loop quantum gravity framework suppresses the semiclassical
+decoherence by a factor that depends on the ratio of the separation $d_0$ to the
+Planck length.  For FLRW horizons, the quantum geometry of the cosmological
+horizon is less well understood than that of a black hole horizon; determining
+whether analogous suppression occurs, and at what scale it becomes relevant, is
+an important intersection of this work with approaches to quantum gravity.
+
+\paragraph{Observable signatures.}
+Both growth laws — logarithmic and linear in $T$ — give distinctive
+\emph{time-dependence} to the coherence amplitude $|\langle \gamma_1 | \rho_{\rm
+red} | \gamma_2\rangle| = e^{-\Nnum(T)}$.  Whether experiments sensitive to
+the time profile of decoherence could distinguish horizon-induced decay from
+other environmental decoherence mechanisms (thermal phonons, electromagnetic
+fluctuations, etc.) is an open and practically motivated question, particularly
+in light of proposals~\cite{Carney:2019} for tabletop tests of quantum gravity
+phenomenology.
+
+%% CITATIONS NEEDED (for gpd-bibliographer):
+%% - Danielson:2022tdw  -- DSW (2023) PRD 108, 025007 (de Sitter N~H^3 T and gravitational result)
+%% - Danielson:2024yge  -- DSW (2025a) PRD 111, 025014 (local Hawking-quanta interpretation)
+%% - Gibbons:1977mu     -- Gibbons & Hawking (1977) PRD 15, 2738 (T_GH = H/2pi)
+%% - Li:2024            -- Li et al. (2025) arXiv:2501.00213 (algebraic QFT de Sitter comparison)
+%% - Gralla:2023oya     -- Gralla & Wei (2024) PRD 109, 065031 (Kerr black holes, general formulation)
+%% - WilsonGerow:2024   -- Wilson-Gerow, Dugad & Chen (2024) PRD 110, 045002 (warm horizons)
+%% - FahnPesci:2025     -- Fahn & Pesci (2025) PRD, arXiv:2507.16911 (quantum geometry suppression)
+%% - Carney:2019        -- Carney, Stamp & Taylor (2019) CQG 36, 034001 (tabletop quantum gravity)

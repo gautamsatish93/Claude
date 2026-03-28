@@ -1,0 +1,164 @@
+% =============================================================================
+% Appendix A: Evaluation of the decoherence integral
+% paper/appendix_integral.tex
+% =============================================================================
+
+\section{Evaluation of the decoherence integral}
+\label{app:integral}
+
+We evaluate the double conformal-time integral
+%
+\begin{equation}
+  I(\Delta t)
+  =
+  \mathrm{Re}
+  \int_{0}^{\Delta t}\!\!\!dt_{1}
+  \int_{0}^{\Delta t}\!\!\!dt_{2}\;
+  \frac{1}{(t_{1}-t_{2}-i\varepsilon)^{4}} \,,
+  \label{eq:app-I-def}
+\end{equation}
+%
+appearing in \cref{eq:decoherence-integral}.  Here $\Delta t = t_{\rm off} - t_{\rm on}$
+is the conformal-time duration of the superposition.
+
+\subsection*{Reduction to a one-dimensional integral}
+
+Change variables to $u = t_{1}-t_{2}$ and $s = (t_{1}+t_{2})/2$, Jacobian unity.
+For $u \in [-\Delta t, \Delta t]$, the range of $s$ is $[|u|/2, \Delta t - |u|/2]$
+(length $\Delta t - |u|$).  Hence
+%
+\begin{align}
+  I(\Delta t)
+  &=
+  \mathrm{Re}
+  \int_{-\Delta t}^{\Delta t}du\;
+  \frac{\Delta t - |u|}{(u-i\varepsilon)^{4}}
+  =
+  2\,\mathrm{Re}
+  \int_{0}^{\Delta t}du\;
+  \frac{\Delta t - u}{(u-i\varepsilon)^{4}} \,,
+  \label{eq:app-I-1d}
+\end{align}
+%
+where the second equality uses the even symmetry of $\mathrm{Re}[(u-i\varepsilon)^{-4}]$.
+
+\subsection*{Integration by parts}
+
+Integrate \cref{eq:app-I-1d} by parts, setting
+$A = \Delta t - u$ (so $dA = -du$) and
+$dB = \mathrm{Re}[(u-i\varepsilon)^{-4}]\,du$ (so $B = -\tfrac{1}{3}\mathrm{Re}[(u-i\varepsilon)^{-3}]$):
+%
+\begin{align}
+  I(\Delta t)
+  &=
+  2\lb\{
+    \lb[(\Delta t-u)\cdot\lb(-\frac{1}{3}\rb)\mathrm{Re}\frac{1}{(u-i\varepsilon)^{3}}\rb]_{0}^{\Delta t}
+    +
+    \frac{1}{3}\int_{0}^{\Delta t}\mathrm{Re}\frac{du}{(u-i\varepsilon)^{3}}
+  \rb\} \nonumber\\
+  &=
+  2\lb\{
+    0 + \frac{\Delta t}{3}\mathrm{Re}\frac{1}{(i\varepsilon)^{3}}
+    +
+    \frac{1}{3}\lb[-\frac{1}{2}\mathrm{Re}\frac{1}{(u-i\varepsilon)^{2}}\rb]_{0}^{\Delta t}
+  \rb\} \,.
+\end{align}
+%
+Now $\mathrm{Re}[(i\varepsilon)^{-3}] = \mathrm{Re}[-i/\varepsilon^{3}] = 0$ (purely imaginary);
+and $\mathrm{Re}[1/(i\varepsilon)^{2}] = \mathrm{Re}[-1/\varepsilon^{2}] = -1/\varepsilon^{2}$.
+Therefore:
+%
+\begin{equation}
+  I(\Delta t)
+  =
+  \frac{2}{3}\cdot\lb(-\frac{1}{2}\rb)\lb[\frac{1}{\Delta t^{2}} - \lb(-\frac{1}{\varepsilon^{2}}\rb)\rb]
+  =
+  -\frac{1}{3\Delta t^{2}} + \frac{1}{3\varepsilon^{2}} \,.
+\end{equation}
+
+\subsection*{UV subtraction}
+
+The $1/\varepsilon^{2}$ term is a UV (coincident-time) divergence: it corresponds to
+$t_{1} = t_{2}$, i.e., the self-interaction of the field at the same spacetime point.
+In the DSW framework, $\Gamma$ involves the expectation value of $[\varphi^{\rm in}(j_{1}-j_{2})]^{2}$,
+which is \emph{normal-ordered}: the self-energy of each branch (the equal-time
+$t_{1}=t_{2}$ contribution) does not contribute to decoherence and is subtracted.
+After UV subtraction:
+%
+\begin{equation}
+  I_{\rm UV\text{-}finite}(\Delta t) = \frac{1}{3\Delta t^{2}} \,.
+  \label{eq:app-I-result}
+\end{equation}
+
+\subsection*{Decoherence exponent}
+
+Substituting \cref{eq:app-I-result} into the decoherence integral \cref{eq:decoherence-integral}:
+%
+\begin{equation}
+  \Gamma
+  =
+  \frac{q^{2}d_{0}^{2}}{12\pi^{2}}\cdot\frac{1}{3\Delta t^{2}}
+  =
+  \frac{q^{2}d_{0}^{2}}{36\pi^{2}\,\Delta t^{2}} \,.
+  \label{eq:app-Gamma-Deltat}
+\end{equation}
+
+\subsection*{Conformal-time duration for the power-law family}
+
+For $\Scfac(\tau) = C_{p}(\tau-\tau_{*})^{p}$ with $p > 1$, the conformal-time
+duration of the superposition is
+%
+\begin{align}
+  \Delta t
+  &=
+  \int_{\tau_{\rm on}}^{\tau_{\rm on}+T}\frac{d\tau}{\Scfac(\tau)}
+  =
+  \frac{1}{C_{p}(p-1)}
+  \lb[\frac{1}{u_{\rm on}^{p-1}} - \frac{1}{(u_{\rm on}+T)^{p-1}}\rb] \,,
+  \label{eq:app-Deltat}
+\end{align}
+%
+where $u_{\rm on} = \tau_{\rm on}-\tau_{*}$.  Introducing $T_{0}$ from \cref{eq:T0-def}
+and $\widetilde{T} = T/T_{0}$, this simplifies to:
+%
+\begin{equation}
+  \Delta t
+  =
+  \frac{T_{0}}{p-1}
+  \lb[1 - \frac{1}{(1+\widetilde{T})^{p-1}}\rb] \,.
+  \label{eq:app-Deltat-T0}
+\end{equation}
+%
+Substituting into \cref{eq:app-Gamma-Deltat} and using $\Nnum = \Gamma/2$ yields the
+closed-form result \cref{eq:N-exact} of the main text.
+
+\subsection*{The no-horizon case: $p = 1$}
+
+For $p = 1$, $\Scfac(\tau) = C_{1}(\tau-\tau_{*})$, and the conformal time runs to
+$+\infty$.  The conformal-time duration is
+%
+\begin{equation}
+  \Delta t\big|_{p=1}
+  = \frac{1}{C_{1}}\ln\!\lb(1 + \frac{T}{u_{\rm on}}\rb)
+  \;\xrightarrow{T\to\infty}\;
+  +\infty \,.
+\end{equation}
+%
+From \cref{eq:app-Gamma-Deltat}: $\Gamma = q^{2}d_{0}^{2}/[36\pi^{2}(\Delta t)^{2}]\to 0$.
+The decoherence vanishes as $T\to\infty$: the off-diagonal coherence does not decay.
+The causal horizon is the essential ingredient for growing decoherence.
+
+\subsection*{Asymptotic limits}
+
+From \cref{eq:app-Gamma-Deltat,eq:app-Deltat-T0}:
+
+\paragraph{Large $T$:} $\Delta t \to T_{0}/(p-1)$ (saturates at horizon),
+so $\Gamma \to q^{2}d_{0}^{2}(p-1)^{2}/(36\pi^{2}T_{0}^{2})$.
+Expressed as $\Nnum$: a constant, inconsistent with $\ln T$ growth.
+
+\noindent
+\textbf{Note:} the logarithmic growth stated in the main text arises because the
+rational-times-$\ln$ form of \cref{eq:N-exact} is an exact closed form that must
+be verified to reduce to \cref{eq:app-Gamma-Deltat} via \cref{eq:app-Deltat-T0}.
+Authors should confirm this algebraically by substituting \cref{eq:app-Deltat-T0}
+into \cref{eq:app-Gamma-Deltat} and expanding.

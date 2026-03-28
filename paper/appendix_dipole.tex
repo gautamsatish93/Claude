@@ -1,0 +1,79 @@
+% =============================================================================
+% Appendix B: Validity of the dipole approximation
+% paper/appendix_dipole.tex
+% =============================================================================
+
+\section{Validity of the dipole approximation}
+\label{app:dipole}
+
+\subsection*{The multipole expansion}
+
+The difference of source currents for two point charges separated by $d_{0}\,\hat\mathbf{s}$
+about a common comoving position $\mathbf{X}$ admits a multipole expansion:
+%
+\begin{equation}
+  j_{1}(x) - j_{2}(x)
+  =
+  q\,d_{0}\,s^{a}\nabla_{a}\delta^{(3)}(\mathbf{x}-\mathbf{X})
+  +
+  \frac{q\,d_{0}^{3}}{24}\,(s^{a}\nabla_{a})^{3}\delta^{(3)}(\mathbf{x}-\mathbf{X})
+  + \cdots
+  \label{eq:app-multipole}
+\end{equation}
+%
+Only odd terms appear (antisymmetry under $d_{0}\to -d_{0}$).  The dipole term
+(first line) dominates when $d_{0} \ll \lambda$, where $\lambda$ is the wavelength
+of the field modes contributing to $\Gamma$.
+
+\subsection*{Relevant wavelengths}
+
+The decoherence exponent $\Gamma$ is determined by the double integral over conformal
+time \cref{eq:decoherence-integral}, with integrand $\sim(t_{1}-t_{2})^{-4}$.
+The effective integration range is $|t_{1}-t_{2}|\lesssim\Delta t$, corresponding
+to field modes with conformal wavenumber $k\sim 1/\Delta t$ and conformal wavelength
+$\lambda_{\rm conf}\sim\Delta t$.  In physical (proper) units:
+%
+\begin{equation}
+  \lambda_{\rm phys} \sim \Scfac(\tau_{\rm on})\cdot\Delta t \,.
+\end{equation}
+%
+For $p > 1$: $\Delta t \leq t_{\infty}-t_{\rm on} = u_{\rm on}^{1-p}/[C_{p}(p-1)]$,
+giving $\lambda_{\rm phys}\lesssim C_{p}u_{\rm on}^{p}\cdot t_{\infty} = u_{\rm on}/(p-1)$.
+This is $O(R_{H})$, where $R_{H} = u_{\rm on}/p$ is the Hubble radius at $\tau_{\rm on}$.
+For de Sitter: $\lambda_{\rm phys}\sim 1/H = R_{H}$.
+
+\subsection*{Validity condition}
+
+The dipole approximation is valid provided the physical superposition separation satisfies
+%
+\begin{equation}
+  d_{0} \ll R_{H}
+  \quad
+  \begin{cases}
+    R_{H} = u_{\rm on}/p & \text{power-law } (p>1) \\
+    R_{H} = 1/H          & \text{de Sitter}
+  \end{cases}
+  \label{eq:app-dipole-cond}
+\end{equation}
+%
+The fractional error from the octupole correction is $O(d_{0}/R_{H})^{2}$.
+For any laboratory-scale superposition ($d_{0}\lesssim\mu$m) in a cosmological
+background ($R_{H}\sim\mathrm{Gpc}$), this ratio is $\lesssim 10^{-49}$: the
+dipole approximation is effectively exact.
+
+\subsection*{The $1/3$ angular factor}
+
+The contraction $\hat{s}^{a}\hat{s}^{b}\pd_{a}\pd_{b'}\Wight|_{x=x'}$
+introduces the factor $1/3$ when the dipole orientation $\hat\mathbf{s}$ is averaged
+isotropically.  Specifically, for a kernel $K_{ij} = f(t_{1},t_{2})\delta_{ij}$
+that is already proportional to $\delta_{ij}$ by spatial isotropy of FLRW:
+%
+\begin{equation}
+  \langle\hat{s}^{i}\hat{s}^{j}\rangle_{\hat\mathbf{s}}\,K_{ij}
+  = \frac{\delta^{ij}}{3}\,f(t_{1},t_{2})\delta_{ij}
+  = \frac{f(t_{1},t_{2})}{3} \,.
+\end{equation}
+%
+The result \cref{eq:N-exact} is therefore the decoherence number for an isotropically
+oriented dipole.  For a fixed orientation $\hat\mathbf{s}$, the overall coefficient
+changes by an $O(1)$ angular factor.

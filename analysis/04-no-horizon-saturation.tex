@@ -1,0 +1,207 @@
+% =============================================================================
+% MATHEMATICAL ANALYSIS 04: No-Horizon Saturation at p=1
+% Stand-alone derivation for inspection
+% =============================================================================
+
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+
+\newcommand{\Scfac}{a}
+\newcommand{\Wight}{W}
+\newcommand{\Nnum}{\mathcal{N}}
+\newcommand{\pd}{\partial}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+
+\title{Analysis 04: No-Horizon Saturation at $p = 1$}
+\author{Calculation Notes --- Satishchandran \& Rao}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Setup: $p=1$ scale factor and conformal time}
+
+For $p=1$: $\Scfac(\tau) = C_{1}(\tau-\tau_{*})$, $u_{\rm on} = \tau_{\rm on}-\tau_{*}$.
+The conformal time is
+%
+\begin{equation}
+  t(\tau) = \int_{\tau_{\rm on}}^{\tau}\frac{d\tau'}{\Scfac(\tau')}
+  = \int_{u_{\rm on}}^{u}\frac{du'}{C_{1}u'}
+  = \frac{1}{C_{1}}\ln\!\lb(\frac{u}{u_{\rm on}}\rb) \,,
+\end{equation}
+%
+with $u = \tau-\tau_{*}$.  As $\tau\to\infty$, $t\to+\infty$: the conformal time
+range is $[0,\infty)$, so no future causal horizon exists.
+
+The conformal time duration of a superposition of proper-time length $T$ is
+%
+\begin{equation}
+  \Delta t = \frac{1}{C_{1}}\ln\!\lb(\frac{u_{\rm on}+T}{u_{\rm on}}\rb)
+  = \frac{1}{C_{1}}\ln(1+T/u_{\rm on}) \,.
+\end{equation}
+%
+As $T\to\infty$: $\Delta t\to+\infty$.
+
+\section*{Decoherence integral for $p=1$}
+
+The decoherence integral is still (from Analysis~02):
+%
+\begin{equation}
+  \Gamma = \frac{q^{2}d_{0}^{2}}{12\pi^{2}}
+  \,\mathrm{Re}\int_{0}^{\Delta t}dt_{1}\int_{0}^{\Delta t}dt_{2}\;
+  \frac{1}{(t_{1}-t_{2}-i\varepsilon)^{4}} \,,
+\end{equation}
+%
+with $\Delta t = C_{1}^{-1}\ln(1+T/u_{\rm on})$.
+
+From Analysis~02:
+%
+\begin{equation}
+  \Gamma = \frac{q^{2}d_{0}^{2}}{36\pi^{2}\Delta t^{2}}
+  = \frac{q^{2}d_{0}^{2}C_{1}^{2}}{36\pi^{2}\lb[\ln(1+T/u_{\rm on})\rb]^{2}} \,.
+  \label{eq:Gamma-p1}
+\end{equation}
+%
+\textbf{Behavior as $T\to\infty$:} $\Delta t\to\infty$, so $1/\Delta t^{2}\to 0$.
+Therefore $\Gamma\to 0$, meaning $\Nnum\to 0$.
+
+\medskip
+\noindent\textbf{But the paper claims $\Nnum\to q^{2}d_{0}^{2}/(16\pi^{2}u_{\rm on}^{2})>0$.}
+
+This is a contradiction with \eqref{eq:Gamma-p1}.  The resolution must lie in the
+structure of the full double integral.  Let me re-examine.
+
+\section*{Re-examination: the $T\to\infty$ limit of the double integral}
+
+For general $p\neq 1$, the double integral over proper time (not conformal time)
+evaluates as follows.  After conformal cancellation, the decoherence exponent is
+%
+\begin{equation}
+  \Gamma = \frac{q^{2}d_{0}^{2}}{12\pi^{2}}
+  \,\mathrm{Re}\int_{t_{\rm on}}^{t_{\rm off}}dt_{1}\int_{t_{\rm on}}^{t_{\rm off}}dt_{2}\;
+  \frac{1}{(t_{1}-t_{2}-i\varepsilon)^{4}} \,,
+\end{equation}
+%
+where $t_{\rm on}$ and $t_{\rm off}$ are in $\mathbb{R}$.  For $p=1$ with the origin
+at $t_{\rm on}=0$, $t_{\rm off}=\Delta t$, the UV-finite result is
+$\Gamma = q^{2}d_{0}^{2}/(36\pi^{2}\Delta t^{2})\to 0$ as $\Delta t\to\infty$.
+
+However, the paper's saturation value $q^{2}d_{0}^{2}/(16\pi^{2}u_{\rm on}^{2})$
+involves $u_{\rm on}$ (the proper time at the start of the superposition since the
+Big Bang), not $\Delta t$.  This suggests the result comes from a different part of
+the calculation — specifically from the cross term or from keeping track of the
+absolute conformal time $t_{\rm on}$ rather than working in shifted coordinates.
+
+\subsection*{Full integral with absolute conformal-time limits}
+
+Let the conformal time run from $t_{\rm on}$ to $t_{\rm off} = t_{\rm on}+\Delta t$.
+The double integral is
+%
+\begin{equation}
+  I = \mathrm{Re}\int_{t_{\rm on}}^{t_{\rm on}+\Delta t}\!\!\!dt_{1}
+  \int_{t_{\rm on}}^{t_{\rm on}+\Delta t}\!\!\!dt_{2}\;
+  \frac{1}{(t_{1}-t_{2}-i\varepsilon)^{4}} \,,
+\end{equation}
+%
+which is the same as before (translation invariant), so $I = 1/(3\Delta t^{2})$.
+
+\medskip
+\noindent\textbf{Alternative interpretation of the paper's result:}
+The saturation value $q^{2}d_{0}^{2}/(16\pi^{2}u_{\rm on}^{2})$ may arise from
+the \emph{total} decoherence accumulated from $\tau=0$ (Big Bang) to $\tau=\tau_{\rm on}$
+plus from the onset of the superposition, or from the $C_{1}$ dependence in
+\eqref{eq:Gamma-p1}.
+
+With $C_1 = u_{\rm on} \Scfac_{\rm on}/\tau_{\rm on}$... let me check the $C_{1}$ relation.
+For $\Scfac(\tau) = C_{1}(\tau-\tau_{*})$, at $\tau=\tau_{\rm on}$:
+$\Scfac_{\rm on} = C_{1}u_{\rm on}$, so $C_{1} = \Scfac_{\rm on}/u_{\rm on}$.
+Then $C_{1}^{2}u_{\rm on}^{2} = \Scfac_{\rm on}^{2}$.
+
+Substituting into \eqref{eq:Gamma-p1} for the early-time behavior $T\ll u_{\rm on}$
+($\Delta t \approx T/(C_{1}u_{\rm on}) = T/\Scfac_{\rm on}$):
+%
+\begin{equation}
+  \Gamma\big|_{T\ll u_{\rm on}} \approx \frac{q^{2}d_{0}^{2}C_{1}^{2}\Scfac_{\rm on}^{2}}{36\pi^{2}T^{2}} \,.
+\end{equation}
+%
+This does not saturate.
+
+\section*{Resolution: the integral is NOT $1/(3\Delta t^2)$ for all $\Delta t$}
+
+Going back to the double integral computation in Analysis~02, I assumed UV subtraction
+removes the entire $-1/\varepsilon^{2}$ term.  However, for the $p=1$ case, what matters
+is the behavior of the integral as $\Delta t \to \infty$, not just its $\varepsilon$-dependence.
+
+The correct UV-finite result for a \emph{symmetric} domain $[-L, L]$ (i.e., equal time before
+and after the origin) would differ from the $[0, \Delta t]$ case.  Examining the integrand:
+%
+\begin{align}
+  I(\Delta t)
+  &=
+  \mathrm{Re}\int_{0}^{\Delta t}d\tau_{1}\int_{0}^{\Delta t}d\tau_{2}
+  \;\frac{1}{(\tau_{1}-\tau_{2}-i\varepsilon)^{4}} \nonumber\\
+  &=
+  \frac{1}{3\Delta t^{2}} \quad\text{(UV-finite result, Analysis~02)} \,.
+\end{align}
+%
+As $\Delta t\to\infty$: $I\to 0$.  So $\Nnum\to 0$ as $T\to\infty$.
+
+\medskip
+\noindent\textbf{This contradicts the paper's saturation claim.}
+
+\section*{FLAG FOR AUTHORS: saturation value}
+
+The paper states (Sec.~IV-D):
+\begin{quote}
+$\Nnum(T\to\infty)|_{p=1} = q^{2}d_{0}^{2}/(16\pi^{2}u_{\rm on}^{2})$
+\end{quote}
+But our direct computation gives $\Nnum\to 0$ as $T\to\infty$ (since $\Delta t\to\infty$
+and $\Gamma\propto 1/\Delta t^{2}$).
+
+There are three possibilities:
+\begin{enumerate}
+\item \textbf{The integral is not $1/(3\Delta t^{2})$:} Maybe the UV-finite result
+  depends more carefully on the $\varepsilon$-subtraction for $p=1$, and the correct
+  formula has a finite constant term plus a decaying term.
+
+\item \textbf{Different integration order:} The paper may be computing a different
+  quantity — e.g., integrating from $\tau=0$ (start of the cosmology) rather than
+  from $\tau_{\rm on}$ (start of the superposition).
+
+\item \textbf{An error in the paper's claimed saturation value:} Possibly the paper
+  is quoting the result for a truncated or IR-regulated version of the integral.
+\end{enumerate}
+
+The correct resolution requires examining the DSW formula more carefully, including
+whether $\Gamma$ counts only modes that are ``lost'' to infinity (which for $p=1$
+means \emph{no} modes are lost, giving $\Gamma=0$) or all emitted radiation
+(which would give a finite contribution).
+
+\section*{Physical interpretation (regardless of the saturation value)}
+
+The key physical claim is qualitative and robust:
+\begin{itemize}
+\item For $p>1$: causal horizon present $\Rightarrow$ $\Nnum$ grows without bound as $T\to\infty$.
+\item For $p=1$: no causal horizon $\Rightarrow$ $\Nnum$ does NOT grow without bound.
+\end{itemize}
+
+Whether the $p=1$ limit gives $\Nnum\to 0$ or $\Nnum\to C$ (constant) for some
+specific nonzero $C$, the diagnostic criterion — \emph{unbounded growth requires a horizon} —
+is preserved.  The $p=1$ result demonstrating absence of growing decoherence is
+the key contrast, regardless of whether the saturation value is zero or nonzero.
+
+\section*{Summary}
+
+Direct evaluation of the conformal-time double integral gives
+$\Gamma = q^{2}d_{0}^{2}/(36\pi^{2}\Delta t^{2})$ with $\Delta t = C_{1}^{-1}\ln(1+T/u_{\rm on})$.
+As $T\to\infty$: $\Gamma\to 0$ (not saturation to a positive constant).  The paper's
+claimed saturation value $q^{2}d_{0}^{2}/(16\pi^{2}u_{\rm on}^{2})$ requires further
+derivation to verify; the physical conclusion (no unbounded decoherence without a horizon)
+is unaffected.
+
+\end{document}
