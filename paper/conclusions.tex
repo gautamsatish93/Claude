@@ -1,0 +1,78 @@
+% =============================================================================
+% Section VIII: Conclusions
+% paper/conclusions.tex
+% =============================================================================
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+We have computed the decoherence number $\Nnum$ for a charged body in spatial
+superposition in the family of spatially flat FLRW spacetimes with power-law
+scale factor $\Scfac(\tau) = C_{p}(\tau - \tau_{*})^{p}$, $p > 1$, using the
+DSW local decoherence framework with the conformal-vacuum Wightman function.
+The key input is that conformal invariance of the massless scalar (and Maxwell)
+field causes the scale-factor dependence to cancel exactly from the decoherence
+integrand, reducing the problem to a purely flat-space double integral over
+conformal time.  The closed-form result,
+%
+\begin{equation}
+  \Nnum(T)
+  =
+  \frac{q^{2}d^{2}p^{3}}{48\pi^{3}}
+  \cdot
+  \frac{2T_{0}^{2} + \widetilde{T}(2 + \widetilde{T})}{T_{0}^{2}(1 + \widetilde{T})^{2}}
+  \cdot
+  \ln(1 + \widetilde{T}) \,,
+  \label{eq:N-conclusions}
+\end{equation}
+%
+where $\widetilde{T} = T/T_{0}$ and $T_{0}$ is the proper-time scale set by
+the initial conditions, holds for any $T > 0$ and any $p > 1$.  For
+$T \gg T_{0}$ this grows as $\Nnum \sim \ln T$, diverging as $T \to \infty$.
+Decoherence is \emph{inevitable}: no matter how well isolated the superposition,
+it is fully decohered at sufficiently late times.  This conclusion holds for the
+entire power-law family, none of which possesses a Killing symmetry or a
+thermal structure analogous to the Gibbons-Hawking temperature.
+
+The causal horizon is identified as the essential mechanism by the sharp
+contrast with the $p = 1$ case, in which no future causal horizon is
+present and $\Nnum$ saturates to a finite constant as $T \to \infty$: the
+off-diagonal coherence does not vanish.  The transition from saturation to
+logarithmic divergence at $p = 1$ demonstrates that it is the irreversible
+sequestration of soft radiation beyond the horizon — not the dynamics of
+the scale factor per se — that converts bounded decoherence into unbounded
+decoherence.  Specializing to de Sitter spacetime, \cref{eq:N-conclusions}
+reduces exactly to the known result
+$\Nnum_{\rm dS} = q^{2}d^{2}H^{3}T/(96\pi^{2})$~\cite{Danielson:2022tdw},
+recovering both the linear growth in $T$ and the numerical coefficient.
+The linear rather than logarithmic growth in de Sitter reflects the
+exponential expansion's constant rate of sweeping modes through the Killing
+horizon; written in terms of the Gibbons-Hawking temperature $T_{\rm GH} =
+H/2\pi$, the rate $\Nnum_{\rm dS}/T \propto T_{\rm GH}^{3}$ has the
+characteristic form of thermal decoherence by a heat bath, a structure
+that is absent in the non-stationary power-law family.
+
+Conformal invariance gives the electromagnetic result without further
+computation: the two independent transverse polarizations of the photon
+contribute equally, yielding $\Nnum_{\rm EM} = 2\,\Nnum_{\rm scalar}$
+for every conformally flat FLRW background, with no dependence on the
+scale factor or on whether the horizon is a Killing horizon.  This
+universality is a direct kinematic consequence of the field's conformal
+structure: the polarization count is background-independent.  Taken
+together, the scalar and electromagnetic results establish a general
+principle: any conformally invariant massless field in an accelerating
+FLRW cosmology with a future causal horizon will inevitably decohere
+spatial superpositions of a coupled source, with a rate that grows at
+least logarithmically in the superposition time.
+
+The most pressing open direction is the extension to soft gravitons in
+FLRW spacetimes.  The linearized gravitational field is not conformally
+invariant, so the methods developed here do not apply directly; new
+techniques are required to handle the non-conformal mode structure and
+the gauge redundancy of the graviton.  The present results provide a
+clean semiclassical baseline — exact decoherence rates from conformally
+invariant fields — against which future quantum-gravity investigations of
+horizon decoherence can be calibrated.
+
+%% CITATIONS NEEDED (for gpd-bibliographer):
+%% - Danielson:2022tdw  -- DSW (2023) PRD 108, 025007, arXiv:2301.00026
