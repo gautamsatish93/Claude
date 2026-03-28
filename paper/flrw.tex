@@ -1,0 +1,176 @@
+% =============================================================================
+% Section II: FLRW Spacetime and Causal Horizons
+% =============================================================================
+
+\section{FLRW Spacetime and Causal Horizons}
+\label{sec:flrw}
+
+We consider a spatially flat, homogeneous, isotropic spacetime described by
+the Friedmann-Lema\^{i}tre-Robertson-Walker (FLRW) metric.  In terms of
+comoving proper time $\tau$ and comoving spatial coordinates
+$(r,\theta,\varphi)$, the line element takes the standard form
+%
+\begin{equation}
+  ds^{2} = -d\tau^{2} + \Scfac(\tau)^{2}
+           \!\left(dr^{2} + r^{2}\,d\Omega^{2}\right) ,
+  \label{eq:flrw-proper}
+\end{equation}
+%
+where $\Scfac(\tau)$ is the scale factor, $d\Omega^{2} =
+d\theta^{2}+\sin^{2}\!\theta\,d\varphi^{2}$, and we work throughout in
+units $G = \hbar = c = 1$ with metric signature $(-,+,+,+)$.
+
+\subsection{Conformal time and the horizon criterion}
+\label{sec:flrw-conformal}
+
+It is convenient to introduce \emph{conformal time} $t$ via
+%
+\begin{equation}
+  dt = \frac{d\tau}{\Scfac(\tau)} ,
+  \label{eq:conformal-time-def}
+\end{equation}
+%
+so that the metric \cref{eq:flrw-proper} becomes manifestly conformally flat:
+%
+\begin{equation}
+  ds^{2} = \Scfac(t)^{2}\,\eta_{\mu\nu}\,dx^{\mu}\,dx^{\nu} ,
+  \label{eq:flrw-conformal}
+\end{equation}
+%
+where $\eta_{\mu\nu} = \mathrm{diag}(-1,+1,+1,+1)$ is the Minkowski metric
+and $x^{\mu} = (t,r,\theta,\varphi)$.  The conformal equivalence
+\cref{eq:flrw-conformal} underlies the entire decoherence calculation in
+\cref{sec:decoherence}: conformally invariant fields in FLRW are mapped
+directly to their flat-space counterparts via $\Scfac(t)$.
+
+The conformal time range $[t_{i}, t_{f}]$ encodes the causal structure of
+the spacetime.  Integrating \cref{eq:conformal-time-def} from a fixed initial
+proper time $\tau_{i}$ to $\infty$,
+%
+\begin{equation}
+  t_{f} - t_{i}
+  = \int_{\tau_{i}}^{\infty} \frac{d\tau}{\Scfac(\tau)} .
+  \label{eq:conformal-time-range}
+\end{equation}
+%
+A \emph{future causal horizon} exists for a comoving observer if and only if
+this integral converges, i.e.\ $t_{f} < \infty$: in that case, any signal
+emitted after $t_{f}$ (in conformal time) can never reach the observer, and
+the region beyond conformal distance $t_{f} - t$ is permanently inaccessible.
+Conversely, if the integral \cref{eq:conformal-time-range} diverges, no
+future causal horizon is present.  A \emph{past causal horizon} arises
+analogously when the integral from $-\infty$ to $\tau_{i}$ converges.
+
+\subsection{The power-law family}
+\label{sec:flrw-powerlaw}
+
+To make the horizon criterion concrete, we study the one-parameter family of
+power-law scale factors
+%
+\begin{equation}
+  \Scfac(\tau) = C_{p}\,\bigl(\tau - \tau_{*}\bigr)^{p} ,
+  \qquad \tau > \tau_{*} ,
+  \label{eq:scale-factor-powerlaw}
+\end{equation}
+%
+where $p > 0$, $C_{p} > 0$, and $\tau_{*}$ marks the Big Bang
+singularity.  This single family spans a wide range of cosmological
+epochs: $p = 1/2$ is radiation domination, $p = 2/3$ is matter domination,
+and $p > 1$ corresponds to accelerated expansion.
+
+Inserting \cref{eq:scale-factor-powerlaw} into \cref{eq:conformal-time-range}
+and setting $u = \tau - \tau_{*}$,
+%
+\begin{equation}
+  t_{f} - t_{0}
+  = \frac{1}{C_{p}} \int_{u_{0}}^{\infty} u^{-p}\,du
+  = \frac{u_{0}^{1-p}}{C_{p}(p-1)} , \qquad p \neq 1 ,
+  \label{eq:powerlaw-conformal-integral}
+\end{equation}
+%
+where $u_{0} = \tau_{i} - \tau_{*} > 0$.  The three qualitative regimes are
+immediately apparent:
+
+\begin{itemize}[noitemsep]
+  \item $p > 1$: the integral converges, so $t_{f} < \infty$.  The conformal
+        time range is \emph{finite from above}, and a future causal horizon
+        exists.  The acceleration of expansion outpaces the propagation of
+        light, permanently hiding a portion of the universe from any
+        comoving observer.
+  \item $p < 1$: the integral diverges, so $t_{f} = +\infty$.  There is no
+        future causal horizon.  However, the integral from the Big Bang is
+        finite ($t_{i} > -\infty$ when integrated from $\tau_{*}$), so a
+        \emph{past} causal horizon exists.
+  \item $p = 1$: both the future integral and the past integral from the Big
+        Bang diverge logarithmically.  The conformal time range covers all of
+        $\mathbb{R}$, and the spacetime is conformally equivalent to all of
+        Minkowski space.  No causal horizon of either type exists.
+\end{itemize}
+
+The decoherence mechanism studied in this paper is driven by the future causal
+horizon, and is therefore operative precisely in the $p > 1$ regime.  The
+$p = 1$ case provides a useful check: with no causal horizon, the decoherence
+number saturates to a finite value as $T \to \infty$ (see
+\cref{sec:powerlaw}).
+
+\subsection{De Sitter spacetime}
+\label{sec:flrw-desitter}
+
+De Sitter spacetime is the maximally symmetric solution with positive
+cosmological constant $\Lambda = 3H^{2}$.  In FLRW slicing it takes the form
+\cref{eq:flrw-proper} with the exponential scale factor
+%
+\begin{equation}
+  \Scfac(\tau) = \frac{1}{H}\,e^{H\tau} ,
+  \label{eq:scale-factor-desitter}
+\end{equation}
+%
+where $H > 0$ is the (constant) Hubble parameter.  The choice of
+normalization $C = 1/H$ is conventional and ensures that $H = \dot{\Scfac}/\Scfac$
+with the dot denoting $d/d\tau$.  Integrating \cref{eq:conformal-time-def},
+the conformal time is
+%
+\begin{equation}
+  \eta = -\frac{e^{-H\tau}}{H} , \qquad \eta \in (-\infty, 0) ,
+  \label{eq:desitter-conformal-time}
+\end{equation}
+%
+where we use $\eta$ (rather than $t$) to distinguish the de Sitter conformal
+coordinate.  As $\tau \to +\infty$, $\eta \to 0^{-}$, confirming that the
+future conformal boundary is at $\eta = 0$: a future causal horizon is
+present.  Inverting \cref{eq:desitter-conformal-time} gives
+$e^{H\tau} = -1/(H\eta)$, so the conformal factor is
+%
+\begin{equation}
+  \Scfac(\eta) = -\frac{1}{H\eta} ,
+  \label{eq:desitter-conformal-factor}
+\end{equation}
+%
+and the metric \cref{eq:flrw-conformal} becomes $ds^{2} = (H\eta)^{-2}\eta_{\mu\nu}dx^{\mu}dx^{\nu}$.
+
+De Sitter spacetime possesses a global timelike Killing vector field
+$\xi^{a} = (\pd/\pd\tau)^{a}$ in the flat FLRW slicing, which generates the
+static patch when analytically continued.  The associated Hawking temperature
+of the cosmological horizon is the Gibbons-Hawking temperature
+\cite{Gibbons:1977mu}
+%
+\begin{equation}
+  T_{\rm GH} = \frac{H}{2\pi} .
+  \label{eq:gibbons-hawking}
+\end{equation}
+%
+This thermal character of de Sitter will be revisited in
+\cref{sec:desitter}, where we recover the known linear-in-$T$ decoherence
+scaling $\mathcal{N} \sim H^{3}q^{2}d^{2}T$ \cite{Danielson:2022tdw} and
+show how it connects to $T_{\rm GH}$.
+
+In contrast, the power-law spacetimes \cref{eq:scale-factor-powerlaw} with
+$p > 1$ admit \emph{no} global Killing vector field: the spacetime is
+genuinely non-stationary.  Thermal arguments based on the Killing symmetry
+therefore do not apply directly.  A key result of this paper is that
+horizon-induced decoherence nevertheless persists in these spacetimes,
+governed instead by a logarithmic growth law $\mathcal{N} \sim \ln T$
+that is geometrically distinct from the de Sitter linear scaling.  The
+physical mechanism — soft radiation irreversibly crossing the causal
+horizon — is the same in both cases; what changes is the rate at which the
+horizon ``peels off'' modes.

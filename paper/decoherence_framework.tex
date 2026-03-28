@@ -1,0 +1,258 @@
+% =============================================================================
+% Section III: Decoherence from Soft Radiation
+% paper/decoherence_framework.tex
+% =============================================================================
+
+\section{Decoherence from Soft Radiation}
+\label{sec:decoherence}
+
+\subsection{Physical setup}
+\label{sec:setup}
+
+We consider a body of charge $q$ (coupling to a scalar field) whose center-of-mass
+degree of freedom is placed in a quantum superposition of two spatially separated
+worldlines $\gamma_1$ and $\gamma_2$ in the FLRW spacetime $(M, g_{ab})$ described
+in \cref{sec:flrw}.  The two worldlines are comoving geodesics that share the same
+spatial trajectory up to a proper displacement $d(\tau)\, s^a$, where $s^a$ is a
+unit spacelike vector and $d(\tau) \geq 0$ is a real envelope that is switched on
+and off \emph{adiabatically}: $d(\tau) \to 0$ for $\tau \to \tau_{\rm on}$ and
+$\tau \to \tau_{\rm off}$, with $d(\tau) = d_0 > 0$ during the active interval
+$(\tau_{\rm on}, \tau_{\rm off})$ of total proper duration $T =
+\tau_{\rm off} - \tau_{\rm on}$.  The adiabatic switching suppresses radiation
+associated with the turn-on and turn-off transients~\cite{DSW2022,DSW2025a},
+ensuring that the decoherence accumulated during $T$ is unambiguously identified
+with the steady-state emission.
+
+The body sources a conformally coupled massless scalar field $\varphi$, satisfying
+\be
+  \lb( \Box_g - \tfrac{1}{6} R \rb)\, \varphi = S \,,
+  \label{eq:wave-eq}
+\ee
+where $S$ is the scalar charge current.  The key property of \cref{eq:wave-eq} is its
+\emph{conformal invariance}: under $g_{ab} \to a^2(\eta)\,\tilde{g}_{ab}$,
+\cref{eq:wave-eq} reduces to the massless wave equation $\Box_{\tilde{g}}\chi = 0$
+for the rescaled field $\chi = \Scfac(\eta)\,\varphi$~\cite{Wald84}.  This mapping
+lies at the heart of the framework developed in
+\cref{sec:confvac,sec:deco-formula} below.  The electromagnetic case, which is
+likewise conformally invariant in four spacetime dimensions, is treated in
+\cref{sec:em}.
+
+The initial state of the field is taken to be the \emph{conformal vacuum}
+$|\Psi_0\rangle$ — the state obtained by pulling back the Minkowski vacuum via
+the conformal equivalence between the FLRW spacetime and flat Minkowski space
+(see \cref{sec:confvac}).  The total initial state of the system is therefore
+\be
+  |\Phi_0\rangle
+  =
+  \frac{1}{\sqrt{2}}\lb(\kt{\gamma_1} + \kt{\gamma_2}\rb) \otimes \kt{\Psi_0} \,,
+  \label{eq:initial-state}
+\ee
+where $\kt{\gamma_A}$ denotes the center-of-mass state of the body following
+worldline $\gamma_A$.  Soft radiation emitted by the moving charge propagates
+outward, and — when a future causal horizon $\mc{H}^+(\gamma)$ is present —
+a portion of that radiation escapes beyond the horizon and becomes permanently
+inaccessible to any observer along $\gamma$.  The entanglement between the
+accessible and inaccessible field degrees of freedom drives the decoherence
+of the spatial superposition.
+
+
+\subsection{The DSW decoherence formula}
+\label{sec:deco-formula}
+
+We apply the local decoherence framework of Danielson, Satishchandran, and
+Wald~\cite{DSW2022,DSW2023,DSW2025a}.  After tracing over the unobserved field
+modes (those beyond the causal horizon), the reduced density matrix of the
+body satisfies~\cite{DSW2025a}
+\be
+  \langle \gamma_1 | \rho_{\rm red}(\tau_{\rm off}) | \gamma_2 \rangle
+  =
+  e^{-\Gamma/2}\,
+  \langle \gamma_1 | \rho_{\rm red}(\tau_{\rm on}) | \gamma_2 \rangle \,,
+  \label{eq:rho-off-diag}
+\ee
+where $\Gamma \geq 0$ is the \emph{decoherence exponent}.  The off-diagonal element
+$\langle \gamma_1 | \rho_{\rm red} | \gamma_2 \rangle$ is the quantum coherence
+between the two branches; $\Gamma = 0$ means no decoherence, while
+$\Gamma \gg 1$ means complete decoherence.  It is convenient to introduce the
+\emph{decoherence number}
+\be
+  \Nnum \equiv \frac{\Gamma}{2}
+  = -\ln\abs{\langle \gamma_1 | \rho_{\rm red} | \gamma_2 \rangle} \,,
+  \label{eq:Ndef}
+\ee
+so that $\Nnum \geq 0$ with $\Nnum \gg 1$ indicating full decoherence.
+
+The exact expression for $\Gamma$ in terms of the in-vacuum field
+operator $\varphi^{\inc}$ is~\cite{DSW2025a}
+\be
+  \Gamma
+  =
+  \langle \Psi_0 |\,
+    \lb[\varphi^{\inc}(j_1 - j_2)\rb]^2
+  \,|\Psi_0\rangle \,,
+  \label{eq:Gamma-exact}
+\ee
+where $j_A$ is the \emph{classical} scalar current of the body following
+path $\gamma_A$, and the smeared field operator is defined by
+$\varphi^{\inc}(j) \equiv \int \! j(x)\, \varphi^{\inc}(x)\, \sqrt{-g}\, d^4x$.
+Equation~\eqref{eq:Gamma-exact} is exact at leading order in the weak-coupling
+expansion (i.e., to order $q^2$) and requires no assumption about the geometry
+other than the existence of a well-defined in-vacuum state~\cite{DSW2025a}.
+Note that $\Gamma$ depends only on the \emph{difference} of the two source currents;
+the individual current of either branch does not enter.  This reflects the physical
+picture: a uniformly moving charge does not radiate, and only the relative motion
+between the two branches generates the entangling radiation.
+
+\subsubsection*{Dipole approximation}
+
+When the superposition separation $d(\tau)$ is small compared to all relevant
+field wavelengths — equivalently, when $d$ is much smaller than the comoving
+horizon scale~\cite[App.~B]{MISSING:dipole-appendix-ref} — the difference of
+source currents reduces to a dipole:
+\be
+  j_1(x) - j_2(x)
+  \approx
+  q\, d(\tau)\, s^a\, \nabla_a\, \delta^{(3)}\!\lb(\mb{x} - \mb{X}(\tau)\rb) \,,
+  \label{eq:dipole}
+\ee
+where $\mb{X}(\tau)$ denotes the comoving spatial position of Alice's lab (taken
+to be the origin, $X^i = 0$), $s^a$ is the unit separation vector, and
+$\nabla_a$ acts on the spatial coordinates.  The validity of
+\cref{eq:dipole} requires $d \ll \lambda_{\rm min}$ for all modes that contribute
+appreciably to $\Gamma$; we verify this condition in \cref{app:dipole}.
+
+Substituting \cref{eq:dipole} into \cref{eq:Gamma-exact} and using the definition
+of the Wightman 2-point function
+\be
+  \Wight(x, x')
+  \equiv
+  \langle \Psi_0 |\, \varphi^{\inc}(x)\, \varphi^{\inc}(x') \,|\Psi_0\rangle \,,
+  \label{eq:Wight-def}
+\ee
+the decoherence exponent becomes
+\begin{align}
+  \Gamma
+  &=
+  q^2
+  \int d\tau\!\int d\tau'\;
+  d(\tau)\, d(\tau')\;
+  s^a s^b\,
+  \partial_a \partial_{b'}\,
+  \Wight\!\lb(\tau, \mb{X};\; \tau', \mb{X}\rb)
+  \bigg|_{\mb{x} = \mb{x}' = \mb{X}} ,
+  \label{eq:Gamma-dipole}
+\end{align}
+where $\partial_a$ and $\partial_{b'}$ denote derivatives with respect to the
+spatial coordinates of the first and second arguments of $\Wight$, evaluated at
+the worldline $\mb{X}$.  This is the master formula whose evaluation in specific
+cosmological backgrounds constitutes the main technical content of
+\cref{sec:powerlaw,sec:desitter}.
+
+
+\subsection{Conformal vacuum and Wightman function}
+\label{sec:confvac}
+
+The decoherence formula~\eqref{eq:Gamma-dipole} requires an explicit expression
+for the Wightman 2-point function $\Wight(x,x')$ in the physical FLRW spacetime.
+We now exploit the conformal invariance of \cref{eq:wave-eq} to obtain this
+expression from the known flat-space Wightman function.
+
+\subsubsection*{Conformal vacuum}
+
+In the conformal coordinates $(t, \mb{x})$ introduced in \cref{sec:flrw}, the FLRW
+metric takes the form $ds^2 = \Scfac^2(t)\,\eta_{\mu\nu}\, dx^\mu dx^\nu$.  The
+conformally rescaled field $\chi \equiv \Scfac(t)\,\varphi$ satisfies the massless
+Klein-Gordon equation in the flat metric $\eta_{\mu\nu}$, so its mode decomposition
+is identical to that of a massless field in Minkowski space.  We define the
+\emph{conformal vacuum} $|\Psi_0\rangle$ to be the state in which these Minkowski
+modes are in their ground state — that is, $|\Psi_0\rangle$ is the pullback of the
+Minkowski vacuum under the conformal map.
+
+For de Sitter spacetime, the conformal vacuum coincides with the well-known
+Bunch-Davies state~\cite{BunchDavies1978,Allen1985} (see \cref{app:bunch-davies}
+for a direct comparison of the Wightman functions).  More generally, the conformal
+vacuum is the natural initial state for any spatially flat FLRW spacetime with
+conformally invariant matter: it is the unique Hadamard state that is invariant
+under the Euclidean symmetries of the spatial slices and that reduces to the
+Minkowski vacuum in the flat-space limit $\Scfac \to \mathrm{const}$.
+
+\subsubsection*{Wightman function in the conformal vacuum}
+
+The 2-point function of the original (unrescaled) field $\varphi$ in the conformal
+vacuum follows immediately from the flat-space Wightman function $W_{\rm Mink}$
+via the conformal weight:
+\be
+  \Wight(x_1, x_2)
+  =
+  \frac{1}{\Scfac(t_1)\,\Scfac(t_2)}\,
+  W_{\rm Mink}(\tilde{x}_1, \tilde{x}_2) \,,
+  \label{eq:Wight-conformal-relation}
+\ee
+where $\tilde{x}$ denotes the same coordinate point viewed in the conformally
+related Minkowski spacetime.  Since the Minkowski massless scalar Wightman function
+is
+$W_{\rm Mink}(\tilde{x}_1,\tilde{x}_2)
+  = -[4\pi^2 \tilde{\sigma}_\varepsilon(\tilde{x}_1,\tilde{x}_2)]^{-1}$
+with $\tilde{\sigma}_\varepsilon = -(t_1-t_2-i\varepsilon)^2+|\mb{x}_1-\mb{x}_2|^2$
+(in our signature conventions), \cref{eq:Wight-conformal-relation} gives
+\be
+  \Wight(x_1, x_2)
+  =
+  \frac{-1}{4\pi^2\, \Scfac(t_1)\, \Scfac(t_2)\,
+    \tilde{\sigma}_\varepsilon(x_1, x_2)} \,,
+  \label{eq:Wight-FLRW}
+\ee
+where the regularized squared geodesic distance in the conformal Minkowski frame is
+\be
+  \tilde{\sigma}_\varepsilon(x_1, x_2)
+  =
+  -\lb(t_1 - t_2 - i\varepsilon\rb)^2
+  + \abs{\mb{x}_1 - \mb{x}_2}^2 \,,
+  \quad \varepsilon \to 0^+ \,.
+  \label{eq:sigma-tilde}
+\ee
+Here $t = \int d\tau/\Scfac(\tau)$ is the conformal time coordinate established
+in \cref{sec:flrw}, and the $i\varepsilon$ prescription implements the standard
+Wightman boundary condition (positive-frequency modes dominate).
+Equations~\eqref{eq:Wight-FLRW}--\eqref{eq:sigma-tilde} agree with the
+conformal-vacuum Wightman function quoted in
+Refs.~\cite{DSW2025a,BunchDavies1978,Allen1985}.
+
+\subsubsection*{Role of the causal horizon}
+
+The decoherence exponent~\eqref{eq:Gamma-dipole} involves a double integral over
+the conformal-time history of the superposition.  The temporal support of the
+integrand is $t \in [t_{\rm on}, t_{\rm off}]$, where
+$t_{\rm on} = \int_{\tau_*}^{\tau_{\rm on}} d\tau/\Scfac(\tau)$ and
+$t_{\rm off} = \int_{\tau_*}^{\tau_{\rm off}} d\tau/\Scfac(\tau)$.
+
+The presence or absence of a future causal horizon is determined by whether the
+conformal time range is finite or infinite as $\tau_{\rm off} \to \infty$:
+\begin{itemize}[leftmargin=2em]
+  \item \emph{Horizon present} ($p > 1$ or de Sitter): the integral
+    $t_{\infty} \equiv \int_{\tau_*}^{\infty} d\tau/\Scfac(\tau)$ converges.
+    The conformal-time range $[t_{\rm on}, t_{\rm off}]$ is bounded above by
+    $t_\infty < \infty$.  The support of $d(\tau)$ is confined to this finite
+    interval, which acts as a \emph{physical infrared (IR) cutoff} on the
+    field modes contributing to $\Gamma$.
+
+  \item \emph{No horizon} ($p \leq 1$, $p \neq 0$): the conformal-time range is
+    unbounded, $t_\infty = \infty$.  The IR modes then contribute a piece that
+    saturates to a constant independent of $T$, so $\Nnum \to \mathrm{const}$
+    as $T \to \infty$ — consistent with the absence of any ongoing loss of
+    information through a horizon.
+\end{itemize}
+This dichotomy is the central mechanism by which the causal horizon converts a
+potentially IR-divergent flat-space formula into a finite, physically meaningful
+decoherence rate.  The explicit computation confirming this picture for the
+power-law family and for de Sitter is carried out in
+\cref{sec:powerlaw,sec:desitter}, respectively.
+
+%% CITATIONS NEEDED (for gpd-bibliographer):
+%% - DSW2022   -- Danielson, Satishchandran, Wald (2022a) IJMPD 31, 2241003
+%% - DSW2023   -- Danielson, Satishchandran, Wald (2023) PRD 108, 025007
+%% - DSW2025a  -- Danielson, Satishchandran, Wald (2025a) PRD 111, 025014
+%% - BunchDavies1978 -- Bunch & Davies (1978) Proc. R. Soc. Lond. A 360, 117
+%% - Allen1985 -- Allen (1985) PRD 32, 3136
+%% - Wald84    -- Wald, General Relativity (1984) [for conformal coupling R/6]
+%% - MISSING:dipole-appendix-ref -- forward ref to App. B (dipole validity)
