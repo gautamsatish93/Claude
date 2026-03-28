@@ -9,15 +9,15 @@ See: .gpd/PROJECT.md
 
 ## Current Position
 
-**Current Phase:** 06
-**Current Phase Name:** Paper Completion
+**Current Phase:** 03
+**Current Phase Name:** Decoherence Integral: Power-Law FLRW
 **Total Phases:** 6
 **Current Plan:** —
 **Total Plans in Phase:** —
-**Status:** Active — VALD-01,02,03 + PAPR-06 remaining
+**Status:** Ready to plan
 **Last Activity:** 2026-03-27
 
-**Progress:** [████████░░] 83%
+**Progress:** [░░░░░░░░░░] 0%
 
 ## Active Calculations
 
@@ -58,10 +58,19 @@ None yet.
 - Natural units: G = hbar = c = 1
 - Gauge choice: Lorenz gauge for EM: nabla^a A_a = 0
 - Regularization scheme: Point-splitting regularization for coincidence limit; iepsilon prescription for distributional 2-point function
+- Renormalization scheme: not applicable (no UV divergences in this paper)
 - Coordinate system: FLRW: (tau,r,theta,phi) proper time; conformal time t via dt = dtau/a(tau); de Sitter eta = -e^{-H tau}/H
+- Spin basis: not applicable (no spinors)
+- State normalization: not applicable (no particle states normalized; continuum field conventions follow Wald 1994)
+- Coupling convention: not applicable (no gauge coupling constant beyond scalar charge q)
 - Index positioning: Abstract index notation: a,b,c,... spacetime; i,j,k,... spatial
 - Time ordering: Advanced minus retarded Green function: E(x1,x2) = G_adv(x1,x2) - G_ret(x1,x2)
 - Commutation convention: [phi^in(f), phi^in(g)] = i E(f,g) * 1 (field commutator)
+- Levi-Civita sign: not applicable (no Levi-Civita tensor in derivations)
+- Generator normalization: not applicable (no Lie algebra generators)
+- Covariant derivative sign: Christoffel connection: nabla_a v^b = d_a v^b + Gamma^b_{ac} v^c (standard)
+- Gamma matrix convention: not applicable (no Dirac equation)
+- Creation/annihilation order: not applicable (scalar field; a(f)|0> = 0 defines vacuum)
 
 ### Propagated Uncertainties
 
@@ -69,11 +78,7 @@ None yet.
 
 ### Pending Todos
 
-- VALD-01: Explicit comparison of de Sitter conformal vacuum W with Bunch-Davies (1978)/Allen (1985) Wightman function — coefficient match required
-- VALD-02: Dimensional analysis of Γ throughout the derivation — confirm dimensionless in G=ħ=c=1 units
-- VALD-03: Identify Gibbons-Hawking temperature T_GH = H/2π in de Sitter result N ≈ q²d²H³T/(96π²)
-- PAPR-06: Write conclusions and discussion section — summary of results, comparison with Killing horizon (de Sitter), implications, future directions (soft gravitons, ΛCDM, phenomenology)
-- Merge GS + NR drafts: GS draft has cleaner framework (Secs 1–3); NR draft has all calculations (Secs 3–6 + appendices)
+None yet.
 
 ### Blockers/Concerns
 

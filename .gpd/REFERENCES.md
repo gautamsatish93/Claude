@@ -1,7 +1,7 @@
 # References: Causal Horizons Decohere Quantum Superpositions
 
 **Created:** 2026-03-27
-**Status:** Partial — scouts 3/4 complete (FLRW decoherence scout still running)
+**Status:** Complete — all 4 scouts done (2026-03-27)
 
 ---
 
@@ -130,11 +130,97 @@ DOI: 10.1103/PhysRevD.15.2738
 
 ---
 
-## Pending (scouts still running)
+## ⚠️ High-Priority New Paper (VALD-01 relevance)
 
-- DSW scout: may add further early DSW papers or clarify 2022a/2022b labeling
-- FLRW decoherence scout: cosmological decoherence / particle creation literature
+### Li et al. (2025) — de Sitter decoherence: local algebraic QFT calculation
+X. Li et al., "Note on the local calculation of decoherence of quantum superpositions in de Sitter spacetime," arXiv: 2501.00213 [gr-qc] (December 2024/January 2025).
+*Directly computes decoherence of spatial superpositions in de Sitter via algebraic QFT for scalar, EM, and gravitational fields. Fixes numerical prefactors. Should be compared against NR draft Sec. 3 result N ≈ q²d²H³T/(96π²). Cite and compare in final paper.*
+
+### Biggs & Maldacena (2024)
+A. Biggs and J. Maldacena, "Comparing the decoherence effects due to black holes versus ordinary matter," arXiv: 2405.02227 [hep-th] (2024).
+*Universality of horizon decoherence; consistent with DSW central dogma.*
 
 ---
 
-_Last updated: 2026-03-27_
+## FLRW Particle Creation (Cosmological Context)
+
+### Parker (1969) — Quantized fields in expanding universes I
+L. Parker, "Quantized fields and particle creation in expanding universes. I," *Phys. Rev.* **183**, 1057–1068 (1969).
+DOI: 10.1103/PhysRev.183.1057
+*Landmark paper: cosmological expansion creates particles from vacuum in FLRW. Essential FLRW context.*
+
+### Parker (1971) — Quantized fields in expanding universes II
+L. Parker, "Quantized fields and particle creation in expanding universes. II," *Phys. Rev. D* **3**, 346–356 (1971).
+DOI: 10.1103/PhysRevD.3.346
+
+### Parker & Navarro-Salas (2017) — Review
+L. Parker and J. Navarro-Salas, "Fifty years of cosmological particle creation," arXiv: 1702.07132 (2017).
+
+---
+
+## Unruh Effect
+
+### Unruh (1976) — Notes on black-hole evaporation
+W. G. Unruh, "Notes on black-hole evaporation," *Phys. Rev. D* **14**, 870–892 (1976).
+DOI: 10.1103/PhysRevD.14.870
+*Foundational Unruh effect paper: accelerating detector perceives Minkowski vacuum as thermal bath at T = ℏa/2πc. Essential for thermal interpretation of Killing-horizon decoherence.*
+
+### Crispino, Higuchi & Matsas (2008) — Unruh effect review
+L. C. B. Crispino, A. Higuchi, and G. E. A. Matsas, "The Unruh effect and its applications," *Rev. Mod. Phys.* **80**, 787 (2008).
+arXiv: 0710.5373.
+
+---
+
+## Decoherence Theory (General)
+
+### Zurek (2003) — Canonical decoherence review
+W. H. Zurek, "Decoherence, einselection, and the quantum origins of the classical," *Rev. Mod. Phys.* **75**, 715–775 (2003).
+arXiv: quant-ph/0105127. DOI: 10.1103/RevModPhys.75.715
+*The canonical reference for pointer states, einselection, environment-induced superselection.*
+
+### Joos, Zeh, Kiefer et al. (2003) — Decoherence monograph
+E. Joos, H. D. Zeh, C. Kiefer, D. Giulini, J. Kupsch, and I.-O. Stamatescu, *Decoherence and the Appearance of a Classical World in Quantum Theory*, 2nd ed., Springer (2003). ISBN 978-3-540-00390-8.
+
+---
+
+## Cosmological Decoherence / Inflation
+
+### Kiefer, Polarski & Starobinsky (1998)
+C. Kiefer, D. Polarski, and A. A. Starobinsky, "Quantum-to-classical transition for fluctuations in the early universe," *Int. J. Mod. Phys. D* **7**, 455–462 (1998).
+arXiv: gr-qc/9802003. DOI: 10.1142/S0218271898000292
+*Demonstrates how inflationary perturbations acquire classical behavior via squeezing and decoherence.*
+
+### Burgess et al. (2023) — Minimal decoherence from inflation
+C. P. Burgess et al., "Minimal decoherence from inflation," *JCAP* **07** (2023) 022.
+arXiv: 2211.11046.
+*GR self-interactions in FLRW/de Sitter suffice to decohere primordial perturbations.*
+
+### Hollowood & McDonald (2017)
+T. J. Hollowood and J. I. McDonald, "Decoherence, discord, and the quantum master equation for cosmological perturbations," *Phys. Rev. D* **95**, 103521 (2017).
+arXiv: 1701.02235. DOI: 10.1103/PhysRevD.95.103521
+
+---
+
+## Priority Summary for Final Bibliography
+
+| Priority | Reference | Requirement link |
+|----------|-----------|-----------------|
+| Essential | DSW (2022b) arXiv:2205.06279 | Framework anchor |
+| Essential | DSW (2023) arXiv:2301.00026 | de Sitter Γ~H³T anchor (DERV-05) |
+| Essential | Li et al. (2025) arXiv:2501.00213 | VALD-01 comparison |
+| Essential | Bunch & Davies (1978) | VALD-01 Wightman comparison |
+| Essential | Allen (1985) | VALD-01 de Sitter vacuum states |
+| Essential | Gibbons & Hawking (1977) | VALD-03 T_GH = H/2π |
+| Essential | Parker (1969) | FLRW particle creation context |
+| Essential | Unruh (1976) | Thermal structure of horizons |
+| High | Wilson-Gerow et al. (2024) arXiv:2405.00804 | Warm horizons / Unruh mechanism |
+| High | Gralla & Wei (2024) arXiv:2311.11461 | Precise rates near bifurcate horizons |
+| High | DSW (2025a) arXiv:2407.02567 | Local reformulation |
+| Contextual | Zurek (2003) quant-ph/0105127 | Decoherence theory |
+| Contextual | Kiefer et al. (1998) | Cosmological decoherence context |
+| Contextual | Biggs & Maldacena (2024) arXiv:2405.02227 | Universality |
+| Follow-up | Fahn & Pesci (2025) arXiv:2507.16911 | EXTD-03 quantum geometry |
+
+---
+
+_Last updated: 2026-03-27 — all 4 scouts complete_
