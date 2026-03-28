@@ -1,0 +1,90 @@
+{
+  "title": "Causal Horizons Decohere Quantum Superpositions",
+  "authors": [
+    {
+      "name": "Gautam Satishchandran",
+      "email": "gautam.satish@princeton.edu",
+      "affiliation": "Physics Department, Princeton Gravity Initiative, Princeton University, Princeton, NJ 08544, USA",
+      "orcid": "0000-0001-8929-0814"
+    },
+    {
+      "name": "Nishkal Rao",
+      "email": "nishkal.rao@students.iiserpune.ac.in",
+      "affiliation": "Department of Physics, Indian Institute of Science Education and Research, Pashan, Pune 411008, India",
+      "orcid": "0009-0006-4551-7312"
+    }
+  ],
+  "abstract": "ABSTRACT_PLACEHOLDER",
+  "journal": "prd",
+  "sections": [
+    {
+      "heading": "Introduction",
+      "label": "sec:intro",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "FLRW Spacetime and Causal Horizons",
+      "label": "sec:flrw",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "Decoherence from Soft Radiation",
+      "label": "sec:decoherence",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "Decoherence in Power-Law FLRW",
+      "label": "sec:powerlaw",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "De Sitter Spacetime and the Gibbons-Hawking Temperature",
+      "label": "sec:desitter",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "Electromagnetic Field",
+      "label": "sec:em",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "Discussion",
+      "label": "sec:discussion",
+      "content": "SECTION_PLACEHOLDER"
+    },
+    {
+      "heading": "Conclusions",
+      "label": "sec:conclusions",
+      "content": "SECTION_PLACEHOLDER"
+    }
+  ],
+  "figures": [
+    {
+      "path": "figures/decoherence_vs_time.pdf",
+      "caption": "Decoherence number $\\mathcal{N}(T)$ as a function of superposition time $T$ for power-law FLRW spacetimes with $p = 1.5, 2, 3$ and for de Sitter spacetime ($H = 1$). For $p > 1$ (future causal horizon present), $\\mathcal{N}$ grows without bound — logarithmically for power-law FLRW and linearly for de Sitter. For $p = 1$ (no causal horizon), $\\mathcal{N}$ saturates to a finite constant. All curves are for the scalar field; the electromagnetic field gives $\\mathcal{N}_{\\rm EM} = 2 \\mathcal{N}_{\\rm scalar}$.",
+      "label": "fig:decoherence",
+      "width": "\\columnwidth",
+      "double_column": false
+    }
+  ],
+  "acknowledgments": "G.S.\\ acknowledges support from Princeton University. N.R.\\ acknowledges support from the Department of Physics, IISER Pune. We thank Robert M.\\ Wald for invaluable discussions and for introducing us to the DSW framework.",
+  "bib_file": "references",
+  "appendix_sections": [
+    {
+      "heading": "Evaluation of the Decoherence Integral",
+      "label": "app:integral",
+      "content": "APPENDIX_PLACEHOLDER"
+    },
+    {
+      "heading": "Validity of the Dipole Approximation",
+      "label": "app:dipole",
+      "content": "APPENDIX_PLACEHOLDER"
+    },
+    {
+      "heading": "Comparison with the Bunch-Davies Wightman Function",
+      "label": "app:bunch-davies",
+      "content": "APPENDIX_PLACEHOLDER"
+    }
+  ],
+  "attribution_footer": "Generated with Get Physics Done"
+}

@@ -1,0 +1,157 @@
+% =============================================================================
+% Causal Horizons Decohere Quantum Superpositions
+% Satishchandran & Rao
+% Target: Physical Review D
+% =============================================================================
+
+\documentclass[aps,prd,twocolumn,nofootinbib,longbibliography,superscriptaddress]{revtex4-2}
+
+% --- Encoding / fonts
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Math
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bbm}
+\usepackage{bm}
+
+% --- Graphics / tables
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+% --- Lists
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+
+% --- Footnotes
+\usepackage[marginal,multiple]{footmisc}
+
+% --- Colors
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
+% --- References (hyperref before cleveref)
+\usepackage[unicode,colorlinks,allcolors=blue!70!black,linktocpage,pdfusetitle]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{cleveref}
+\usepackage{braket}
+\usepackage{cancel}
+\usepackage{orcidlink}
+
+% =============================================================================
+% MACROS
+% =============================================================================
+
+% Bra-ket shortcuts
+\newcommand{\kt}[1]{\!\ket{#1}\!}
+\newcommand{\br}[1]{\!\bra{#1}\!}
+\newcommand{\brkt}[1]{\!\braket{#1}\!}
+
+% Equation shortcuts
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\nn}{\nonumber}
+
+% Bracket helpers
+\newcommand{\lb}{\left}
+\newcommand{\rb}{\right}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+
+% Superscripts
+\newcommand{\inc}{\mathrm{in}}
+\newcommand{\out}{\mathrm{out}}
+
+% Math alphabets
+\newcommand{\mc}{\mathcal}
+\newcommand{\mb}{\mathbf}
+\newcommand{\ms}{\mathscr}
+\newcommand{\bb}{\mathbb}
+\newcommand{\msf}{\mathsf}
+\newcommand{\vecb}[1]{\boldsymbol{#1}}
+
+% Physics operators
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\pd}{\partial}
+
+% Key physics symbols
+\newcommand{\Deco}{\mathcal{D}}      % Decoherence functional D
+\newcommand{\Nnum}{\mathcal{N}}      % Decoherence number N
+\newcommand{\Wight}{W}               % Wightman function W
+\newcommand{\Gret}{G_{\rm ret}}      % Retarded Green function
+\newcommand{\Gadv}{G_{\rm adv}}      % Advanced Green function
+\newcommand{\Scfac}{a}               % Scale factor a(tau)
+
+% Review notes (strip before submission)
+\definecolor{indigo(dye)}{rgb}{0.0, 0.25, 0.42}
+\newcommand{\Nnote}[1]{{\textcolor{magenta}{#1}}}
+\newcommand{\GSnote}[1]{{\it \textcolor{indigo(dye)}{#1}}}
+
+% cleveref names
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+\crefname{section}{Sec.}{Secs.}
+\crefname{appendix}{Appendix}{Appendices}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{table}{Table}{Tabs.}
+
+% Section numbering
+\renewcommand\thesection{\Roman{section}}
+\renewcommand\thesubsection{\Alph{subsection}}
+
+% =============================================================================
+% DOCUMENT
+% =============================================================================
+
+\begin{document}
+
+\title{Causal Horizons Decohere Quantum Superpositions}
+
+\author{Gautam Satishchandran \orcidlink{0000-0001-8929-0814}}
+\email{gautam.satish@princeton.edu}
+\affiliation{Physics Department, Princeton Gravity Initiative,
+  Princeton University, Princeton, NJ 08544, USA}
+
+\author{Nishkal Rao \orcidlink{0009-0006-4551-7312}}
+\email{nishkal.rao@students.iiserpune.ac.in}
+\affiliation{Department of Physics, Indian Institute of Science Education
+  and Research, Pashan, Pune 411008, India}
+
+\date{\today}
+
+\begin{abstract}
+\input{abstract}
+\end{abstract}
+
+\maketitle
+
+% =============================================================================
+\input{introduction}
+\input{flrw}
+\input{decoherence_framework}
+\input{powerlaw}
+\input{desitter}
+\input{em_extension}
+\input{discussion}
+\input{conclusions}
+% =============================================================================
+
+\begin{acknowledgments}
+G.S.\ acknowledges support from Princeton University.
+N.R.\ acknowledges support from the Department of Physics, IISER Pune.
+We thank Robert M.\ Wald for invaluable discussions.
+\end{acknowledgments}
+
+\appendix
+\input{appendix_integral}
+\input{appendix_dipole}
+\input{appendix_bunchdavies}
+
+\bibliography{references}
+
+\end{document}
